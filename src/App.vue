@@ -1,26 +1,42 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
     <router-view/>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'App'
+  name: 'App',
+  created(){
+    var deviceWidth;
+    setHtmlFontSize();
+    if (window.addEventListener) {
+      window.addEventListener(
+        "resize",
+        function() {
+          setHtmlFontSize();
+        },
+        false
+      );
+    }
+    function setHtmlFontSize() {
+      // 1920是设计稿的宽度，当大于1920时采用1920宽度，比例也是除以19.2
+      deviceWidth =
+        document.documentElement.clientWidth > 1920
+          ? 1920
+          : document.documentElement.clientWidth;
+      document.getElementsByTagName("html")[0].style.cssText =
+        "font-size:" + deviceWidth / 19.2 + "px !important";
+    }
+  }
 }
 </script>
 
 <style lang='less'>
-body{
+body,html{
   width: 100%;
-  #app {
-    font-family: 'Avenir', Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-align: center;
-    color: #2c3e50;
-    margin-top: 60px;
-  }
+  position: relative;
+  margin: 0px;
+  padding: 0px;
 }
 </style>
