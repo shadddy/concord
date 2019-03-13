@@ -8,5 +8,10 @@ module.exports={
             nav5:'地点',
             nav6:'C-TPAT'
         }
+    },
+    index:{
+        part_1:{
+            title:'全世界分布'
+        }
     }
 }

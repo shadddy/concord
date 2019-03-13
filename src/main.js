@@ -6,6 +6,8 @@ import router from './router'
 import iView from 'iview'
 import 'iview/dist/styles/iview.css';
 import VueI18n from 'vue-i18n'
+import '../static/font/font.css'
+import '@/assets/css/basic.css'
 
 Vue.use(VueI18n)
 Vue.use(iView);
@@ -13,7 +15,7 @@ Vue.config.productionTip = false
 
 
 const i18n=new VueI18n({
-	locale:'CN',
+	locale:'EN',
 	messages:{
 		'CN':require('./lang/cn'),
 		'EN':require('./lang/en')
