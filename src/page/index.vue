@@ -1,15 +1,17 @@
 <template>
-  <div class='index'>
+  <div class="index">
     <swiper :options="swiperOption" ref="mySwiper">
-      <swiper-slide v-for="(item,index) in 7" :key="index" :style="{backgroundImage:'url('+require('../assets/img/index/bg_'+(index+1)+'.jpg')+')'}">
+      <!-- 第一屏 -->
+      <swiper-slide :style="{backgroundImage:'url('+require('../assets/img/index/bg_1.jpg')+')'}">
         <!-- 头部导航 -->
-        <my-head v-show="index==0"></my-head>
-        <!-- 第一屏 -->
-        <div class="section part-1" v-show="index==0">
+        <my-head></my-head>
+        <div class="section part-1">
           <swiper :options="bannerOption" ref="banner">
-            <swiper-slide v-for="(i,ind) in 3" :key="'banner-'+ind" :style="{backgroundImage:'url('+require('../assets/img/index/bg_'+(index+1)+'.jpg')+')'}">
-
-            </swiper-slide>
+            <swiper-slide
+              v-for="(i,ind) in 3"
+              :key="'banner-'+ind"
+              :style="{backgroundImage:'url('+require('../assets/img/index/bg_'+(ind+1)+'.jpg')+')'}"
+            ></swiper-slide>
           </swiper>
           <h1 class="ab">{{$t('index.part_1.title')}}</h1>
           <div class="btn-box ab flex">
@@ -17,83 +19,203 @@
             <div class="btn">{{$t('index.part_1.btn2')}}</div>
           </div>
         </div>
-        <div v-for="(item,index) in detailList" :class="'section part-'+item.page">
-
+      </swiper-slide>
+      <swiper-slide :style="{backgroundImage:'url('+require('../assets/img/index/bg_2.jpg')+')'}">
+        <div class="mask part-2 left">
+          <div class="content">
+            <div class="avatar" :style="icon"></div>
+            <div class="text">
+              <h1>{{$t('index.part_2.title')}}</h1>
+              <p>{{$t('index.part_2.text')}}</p>
+              <div class="box">
+                <div class="icon before">
+                  <div class="pic icon1" :style="icon"></div>
+                  <p>{{$t('index.part_2.icon1')}}</p>
+                </div>
+                <div class="icon">
+                  <div class="pic icon2" :style="icon"></div>
+                  <p>{{$t('index.part_2.icon2')}}</p>
+                </div>
+                <div class="more">{{$t('index.part_2.more')}}</div>
+              </div>
+            </div>
+          </div>
         </div>
       </swiper-slide>
-      <div class="swiper-pagination"  slot="pagination"></div>
+      <swiper-slide :style="{backgroundImage:'url('+require('../assets/img/index/bg_3.jpg')+')'}">
+        <div class="mask part-3 right">
+          <div class="content">
+            <div class="avatar" :style="icon"></div>
+            <div class="text">
+              <h1>{{$t('index.part_3.title')}}</h1>
+              <p>{{$t('index.part_3.text')}}</p>
+              <div class="box">
+                <div class="icon before">
+                  <div class="pic icon3" :style="icon"></div>
+                  <p>{{$t('index.part_3.icon1')}}</p>
+                </div>
+                <div class="icon">
+                  <div class="pic icon4" :style="icon"></div>
+                  <p>{{$t('index.part_3.icon2')}}</p>
+                </div>
+                <div class="more">{{$t('index.part_3.more')}}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </swiper-slide>
+      <swiper-slide :style="{backgroundImage:'url('+require('../assets/img/index/bg_4.jpg')+')'}">
+        <div class="mask part-4 left">
+          <div class="content">
+            <div class="avatar" :style="icon"></div>
+            <div class="text">
+              <h1>{{$t('index.part_4.title')}}</h1>
+              <p>{{$t('index.part_4.text')}}</p>
+              <div class="box">
+                <div class="icon before">
+                  <div class="pic icon5" :style="icon"></div>
+                  <p>{{$t('index.part_4.icon1')}}</p>
+                </div>
+                <div class="icon">
+                  <div class="pic icon6" :style="icon"></div>
+                  <p>{{$t('index.part_4.icon2')}}</p>
+                </div>
+                <div class="more">{{$t('index.part_4.more')}}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </swiper-slide>
+      <swiper-slide :style="{backgroundImage:'url('+require('../assets/img/index/bg_5.jpg')+')'}">
+        <div class="mask part-5 right">
+          <div class="content">
+            <div class="avatar" :style="icon"></div>
+            <div class="text">
+              <h1>{{$t('index.part_5.title')}}</h1>
+              <p>{{$t('index.part_5.text')}}</p>
+              <div class="box">
+                <div class="icon before">
+                  <div class="pic icon7" :style="icon"></div>
+                  <p>{{$t('index.part_5.icon1')}}</p>
+                </div>
+                <div class="icon">
+                  <div class="pic icon8" :style="icon"></div>
+                  <p>{{$t('index.part_5.icon2')}}</p>
+                </div>
+                <div class="more">{{$t('index.part_5.more')}}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </swiper-slide>
+      <swiper-slide :style="{backgroundImage:'url('+require('../assets/img/index/bg_6.jpg')+')'}">
+        <div class="mask part-6 left">
+          <div class="content">
+            <div class="avatar" :style="icon"></div>
+            <div class="text">
+              <h1>{{$t('index.part_6.title')}}</h1>
+              <p>{{$t('index.part_6.text')}}</p>
+              <div class="box">
+                <div class="icon before">
+                  <div class="pic icon9" :style="icon"></div>
+                  <p>{{$t('index.part_6.icon1')}}</p>
+                </div>
+                <div class="icon">
+                  <div class="pic icon10" :style="icon"></div>
+                  <p>{{$t('index.part_6.icon2')}}</p>
+                </div>
+                <div class="more">{{$t('index.part_6.more')}}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </swiper-slide>
+      <swiper-slide :style="{backgroundImage:'url('+require('../assets/img/index/bg_7.jpg')+')'}">
+        <div class="form">
+          <h1>{{$t('index.part_7.title')}}</h1>
+          <h3>{{$t('index.part_7.subtitle')}}</h3>
+          <div class="left">
+            <div class="flex">
+              <div class="icon icon1" :style="icon"></div>
+              <p>{{$t('index.part_7.province')}}</p>
+            </div>
+            <div class="flex">
+              <div class="icon icon2" :style="icon"></div>
+              <p>{{$t('index.part_7.address')}}</p>
+            </div>
+            <div class="flex">
+              <div class="icon icon3" :style="icon"></div>
+              <p>{{$t('index.part_7.wechat')}}</p>
+            </div>
+            <div class="flex">
+              <div class="icon icon4" :style="icon"></div>
+              <p>{{$t('index.part_7.email')}}</p>
+            </div>
+          </div>
+          <div class="right">
+            <input type="text" class="first" :placeholder="$t('index.part_7.form1')">
+            <input type="text" class="last" :placeholder="$t('index.part_7.form2')">
+            <input type="text" class="email" :placeholder="$t('index.part_7.form3')">
+            <input type="text" class="tel" :placeholder="$t('index.part_7.form4')">
+            <textarea name="" class="message" :placeholder="$t('index.part_7.form5')"></textarea>
+            <div class="submit">
+              {{$t('index.part_7.submit')}}
+            </div>
+          </div>
+        </div>
+        <my-foot></my-foot>
+      </swiper-slide>
+      <div class="swiper-pagination" slot="pagination"></div>
     </swiper>
   </div>
 </template>
 
 <script>
-import 'swiper/dist/css/swiper.css'
-import { swiper, swiperSlide } from 'vue-awesome-swiper'
-import myHead from '@/components/header'
+import "swiper/dist/css/swiper.css";
+import { swiper, swiperSlide } from "vue-awesome-swiper";
+import myHead from "@/components/header";
+import myFoot from "@/components/footer";
 export default {
   components: {
     swiper,
     swiperSlide,
-    myHead
+    myHead,
+    myFoot
   },
   data() {
     return {
+      icon: {
+        backgroundImage:
+          "url(" + require("../assets/img/index/index_icon.png") + ")"
+      },
       //翻页配置
-      swiperOption:{
-        autoplay:3000,
-        speed:1000,
-        direction:'vertical',
-        mousewheel:true,
-        pagination:{
-          el:'.swiper-pagination',
-          clickable:true
+      swiperOption: {
+        autoplay: 3000,
+        speed: 1000,
+        direction: "vertical",
+        mousewheel: true,
+        initialSlide :6,
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true
         }
       },
       //banner配置
-      bannerOption:{
-        autoplay:3000,
-        speed:1000,
-        mousewheel:true,
-        pagination:{
-          el:'.swiper-pagination',
-          clickable:true
+      bannerOption: {
+        autoplay: 3000,
+        speed: 1000,
+        mousewheel: true,
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true
         }
-      },
-      detailList:[
-        {
-          page:1
-        },
-        {
-          page:2,
-          title:'2222'
-        },
-        {
-          page:3,
-          title:'3333'
-        },
-        {
-          page:4,
-          title:'4444'
-        },
-        {
-          page:5,
-          title:'5555'
-        },
-        {
-          page:6,
-          title:'6666'
-        },
-        {
-          page:7
-        }
-      ]
-
+      }
     };
   },
   //监听属性 类似于data概念
   computed: {
     swiper() {
-        return this.$refs.mySwiper.swiper
+      return this.$refs.mySwiper.swiper;
     }
   },
   //监控data中的数据变化
@@ -101,47 +223,43 @@ export default {
   //方法集合
   methods: {},
   //生命周期 - 创建完成（可以访问当前this实例）
-  created() {
-    
-  },
+  created() {},
   //生命周期 - 挂载完成（可以访问DOM元素）
-  mounted() {
-    
-  }
+  mounted() {}
 };
 </script>
 <style lang='less' scoped>
-.index{
-  width:100%;
+.index {
+  width: 100%;
   height: 100%;
   position: relative;
-  .swiper-container{
+  .swiper-container {
     width: 100%;
     height: 100%;
-    .swiper-slide{
+    .swiper-slide {
       width: 100%;
       height: 100%;
       background-position: center;
-      .section{
+      .section {
         width: 100%;
         height: 100%;
         position: relative;
         overflow: hidden;
       }
-      .part-1{
-        h1{
+      .part-1 {
+        h1 {
           left: 50%;
           transform: translateX(-50%);
           top: 4.35rem;
           z-index: 1;
-          font-family: 'bauhs93';
+          font-family: "bauhs93";
           color: white;
           font-size: 0.82rem;
           font-weight: 500;
-          text-shadow:0px 10px 12px #333333;
+          text-shadow: 0px 10px 12px #333333;
           white-space: nowrap;
         }
-        .btn-box{
+        .btn-box {
           width: 5.8rem;
           height: 0.7rem;
           z-index: 1;
@@ -149,12 +267,12 @@ export default {
           left: 50%;
           transform: translateX(-50%);
           top: 6rem;
-          .btn{
+          .btn {
             width: 2.6rem;
             height: 0.7rem;
-            background: rgba(255,255,255,0.7);
+            background: rgba(255, 255, 255, 0.7);
             text-align: center;
-            color:#5b5b5b;
+            color: #5b5b5b;
             font-size: 0.26rem;
             line-height: 0.7rem;
             font-weight: 600;
@@ -163,17 +281,293 @@ export default {
           }
         }
       }
+      .mask {
+        width: 100%;
+        height: 4rem;
+        background: rgba(0, 0, 0, 0.3);
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        padding: 0 3.2rem;
+        .content {
+          width: 12.8rem;
+          margin: 0 auto;
+          position: relative;
+        }
+        .avatar {
+          width: 3.7rem;
+          height: 3.7rem;
+          background-size: 15rem 8rem;
+          position: absolute;
+          top: -1.65rem;
+        }
+        .text {
+          width: 8rem;
+          height: 100%;
+          position: absolute;
+          
+          top: 0;
+          padding-top: 0.39rem;
+          h1 {
+            font-size: 0.38rem;
+            color: white;
+            font-family: "biminbold";
+            text-align: right;
+            position: relative;
+            &::after{
+              content: "";
+              background: #2a6ec1;
+              width: 1.9rem;
+              height: 0.04rem;
+              display: block;
+              position: absolute;
+              right: 0;
+              bottom: -0.06rem;
+            }
+          }
+          & > p {
+            font-size: 0.2rem;
+            color: white;
+            font-family: Helvetica;
+            margin-top: 0.15rem;
+          }
+          .box {
+            margin-top: 0.64rem;
+            width: 100%;
+            display: flex;
+            display: -webkit-flex;
+            padding-left: 1.6rem;
+            position: relative;
+            .icon {
+              position: relative;
+              margin-right: 0.6rem;
+              width: 0.94rem;
+              &.before::before {
+                content: "";
+                background: white;
+                width: 1px;
+                height: 0.52rem;
+                display: block;
+                position: absolute;
+                right: -0.22rem;
+                top: 0.11rem;
+              }
+              .pic {
+                width: 0.44rem;
+                height: 0.44rem;
+                background-size: 15rem 8rem;
+                margin: 0 auto;
+                &.icon1 {
+                  background-position: -3.7rem -3.7rem;
+                }
+                &.icon2 {
+                  background-position: -3.7rem -4.14rem;
+                }
+              }
+              p {
+                color: white;
+                font-size: 0.2rem;
+                margin-top: 0.1rem;
+                text-align: center;
+              }
+            }
+            .more {
+              color: white;
+              font-size: 0.2rem;
+              border: 0.02rem solid #2a6ec1;
+              border-radius: 0.08rem;
+              width: 1.68rem;
+              height: 0.44rem;
+              text-align: center;
+              line-height: 0.4rem;
+              position: absolute;
+              right: 0;
+              top: 0.16rem;
+            }
+          }
+        }
+        &.part-2 {
+          .avatar {
+            background-position: 0 0;
+          }
+        }
+        &.part-3 {
+          .avatar {
+            background-position: -3.7rem 0;
+          }
+          .icon3{
+            background-position: -4.14rem -3.7rem;
+          }
+          .icon4{
+            background-position: -4.14rem -4.14rem;
+          }
+        }
+        &.part-4 {
+          .avatar {
+            background-position: -7.39rem 0;
+          }
+          .icon5{
+            background-position: -4.58rem -4.14rem;
+          }
+          .icon6{
+            background-position: -4.58rem -3.7rem;
+          }
+        }
+        &.part-5 {
+          .avatar {
+            background-position: -11.09rem 0;
+          }
+          .icon7{
+            background-position: -5.02rem -3.7rem;
+          }
+          .icon8{
+            background-position: -5.02rem -4.14rem;
+          }
+        }
+        &.part-6 {
+          .avatar {
+            background-position: -0rem -3.7rem;
+          }
+          .icon9{
+            background-position: -5.46rem -3.7rem;
+          }
+          .icon10{
+             background-position: -5.46rem -4.14rem;
+          }
+        }
+        &.left {
+          .avatar{
+            left:0;
+          }
+          .text{
+            right: 0;
+          }
+        }
+        &.right {
+          .avatar {
+            right:0;
+          }
+          .text{
+            left: 0;
+            h1{
+              text-align: left;
+              &::after{
+                left: 0;
+              }
+            }
+          }
+          .box{
+            padding-left: 2.93rem;
+            .more{
+              left: 0;
+            }
+          }
+        }
+      }
+      .form{
+          width: 12.8rem;
+          height:7rem;
+          background: rgba(0,0,0,0.3);
+          margin: 0.8rem auto;
+          padding: 0.4rem 0.6rem;
+          position: relative;
+          h1{
+            color: white;
+            text-align: center;
+            font-size: 0.5rem;
+            font-family: "bauhs93";
+            color: white;
+            font-weight: 500;
+            text-shadow: 0px 7px 10px #333333;
+          }
+          h3{
+            color: white;
+            font-size: 0.24rem;
+            text-align: center;
+            font-weight: 500;
+          }
+          .left{
+            padding-top: 0.5rem;
+            width: 50%;
+            display: inline-block;
+            .flex{
+              margin-bottom: 0.3rem;
+            }
+            .icon{
+              background-size: 15rem 8rem;
+              width: 0.86rem;
+              height:0.86rem;
+            }
+            .icon1{
+              background-position: -3.7rem -4.58rem;
+            }
+            .icon2{
+              background-position: -4.57rem -4.58rem;
+            }
+            .icon3{
+              background-position: -3.7rem -5.45rem;
+            }
+            .icon4{
+              background-position: -4.57rem -5.45rem;
+            }
+            p{
+              color: white;
+              font-size: 0.2rem;
+              line-height: 0.86rem;
+              margin-left: 0.55rem;
+            }
+          }
+          .right{
+            padding-top: 0.4rem;
+            vertical-align: top;
+            width: 49%;
+            display: inline-block;
+            input,textarea{
+              display: block;
+              background: transparent;
+              border:1px solid #e1dad9;
+              margin-bottom: 0.2rem;
+              border-radius: 0.05rem;
+              outline: none;
+              color:#b3b3b3;
+              text-indent: 0.1rem;
+              font-size: 0.2rem;
+            }
+            .first,.last{
+              width: 2.38rem;
+              height:0.44rem;
+            }
+            .email,.tel{
+              width: 5.2rem;
+              height:0.44rem;
+            }
+            .message{
+              width: 5.2rem;
+              height: 1.31rem;
+            }
+            .submit{
+              color: white;
+              font-size: 0.2rem;
+              width:1.68rem;
+              height: 0.44rem;
+              border: 0.02rem solid #2a6ec1;
+              border-radius: 0.08rem;
+              text-align: center;
+              line-height: 0.44rem;
+              margin: 0.3rem auto;
+            }
+          }
+      }
     }
   }
-  
 }
 </style>
 <style lang="less">
-.swiper-pagination-bullet{
-    width: 12px;
-    height: 12px;
+.swiper-pagination-bullet {
+  width: 12px;
+  height: 12px;
 }
-.swiper-pagination-bullet-active{
-  background:#ffffff;
+.swiper-pagination-bullet-active {
+  background: #ffffff;
 }
 </style>
