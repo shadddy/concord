@@ -9,7 +9,7 @@
         v-for="(item,index) in nav"
         :key="index"
       >
-        {{item.name}}
+        <router-link :to="item.url">{{item.name}}</router-link>
       </li>
     </ul>
     <div class="lang flex">
@@ -30,22 +30,28 @@ export default {
         ")",
       nav: [
         {
-          name: this.$t("header.nav.nav1")
+          name: this.$t("header.nav.nav1"),
+          url:{path:'/'}
         },
         {
-          name: this.$t("header.nav.nav2")
+          name: this.$t("header.nav.nav2"),
+          url:{path:'about'}
         },
         {
-          name: this.$t("header.nav.nav3")
+          name: this.$t("header.nav.nav3"),
+          url:{path:'service'}
         },
         {
-          name: this.$t("header.nav.nav4")
+          name: this.$t("header.nav.nav4"),
+          url:{path:'tool'}
         },
         {
-          name: this.$t("header.nav.nav5")
+          name: this.$t("header.nav.nav5"),
+          url:{path:'location'}
         },
         {
-          name: this.$t("header.nav.nav6")
+          name: this.$t("header.nav.nav6"),
+          url:{path:'tpat'}
         }
       ]
     };
@@ -89,6 +95,9 @@ export default {
       color: white;
       font-family: "HelveticaExt-Normal";
       margin-left: 0.89rem;
+      a{
+        color: white;
+      }
     }
   }
   .lang {

@@ -1,12 +1,15 @@
 <template>
   <div class="about">
-      关于我们
+      <my-head></my-head>
   </div>
 </template>
 
 <script>
+import myHead from '@/components/header'
 export default {
-  components: {},
+  components: {
+    myHead
+  },
   data() {
     return {};
   },

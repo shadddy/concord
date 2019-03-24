@@ -5,7 +5,7 @@ import about from '@/page/about'
 import service from '@/page/service'
 import tool from '@/page/tool'
 import location from '@/page/location'
-import part from '@/page/part'
+import tpat from '@/page/tpat'
 
 Vue.use(Router)
 
@@ -14,7 +14,10 @@ export default new Router({
     {
       path: '/',
       name: 'index',
-      component: index
+      component: index,
+      meta:{
+        title:this.$t("header.nav.nav1")
+      },
     },
     {
       path:'/about',
@@ -37,9 +40,9 @@ export default new Router({
       component:location
     },
     {
-      path:'/part',
-      name:'part',
-      component:part
+      path:'/tpat',
+      name:'tpat',
+      component:tpat
     }
   ]
 })
