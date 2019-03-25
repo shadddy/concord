@@ -194,7 +194,6 @@ export default {
         speed: 1000,
         direction: "vertical",
         mousewheel: true,
-        initialSlide :6,
         pagination: {
           el: ".swiper-pagination",
           clickable: true

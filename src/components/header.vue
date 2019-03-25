@@ -1,5 +1,5 @@
 <template>
-  <div class="header ab flex">
+  <div class="header ab flex" :class="{isNotIndex:$route.meta.isIndex==false}">
     <div
       class="logo"
       :style="index_icon"
@@ -87,7 +87,7 @@ export default {
     background-size: 15rem 8rem;
     margin: 0.25rem 0 0 1.33rem;
   }
-  ul {
+   ul {
     margin: 0.54rem 0 0 0.11rem;
     li {
       font-size: 0.24rem;
@@ -102,7 +102,6 @@ export default {
   }
   .lang {
     justify-content: space-between;
-
     margin: 0.57rem 0 0 2.5rem;
     span {
       color: white;
@@ -121,6 +120,29 @@ export default {
           position: absolute;
           left: -0.16rem;
           top: 0.04rem;
+        }
+      }
+    }
+  }
+  &.isNotIndex{
+    position: relative;
+    margin-bottom: 0.35rem;
+    background: white;
+    ul{
+      li{
+        color:#666666;
+        a{
+          color:#666666;
+        }
+      }
+    }
+    .lang{
+      span{
+        color:#666666;
+        &:nth-of-type(2){
+          &::before{
+            background: #666666;
+          }
         }
       }
     }

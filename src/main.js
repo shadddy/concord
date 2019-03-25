@@ -2,7 +2,6 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import App from './App'
-// import VueRouter from 'vue-router';
 import router from './router'
 import iView from 'iview'
 import 'iview/dist/styles/iview.css';
@@ -13,10 +12,6 @@ Vue.use(VueI18n)
 Vue.use(iView);
 Vue.config.productionTip = false
 
-// const router=new VueRouter({
-//   routes
-// })
-
 const i18n=new VueI18n({
 	locale:'EN',
 	messages:{
@@ -24,6 +19,13 @@ const i18n=new VueI18n({
 		'EN':require('./lang/en')
 	}
 })
+
+// router.beforeEach((to, from, next) => {//beforeEach是router的钩子函数，在进入路由前执行
+//   if (to.meta.title) {//判断是否有标题
+//       document.title = to.meta.title
+//       next()
+//   }
+// })
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
