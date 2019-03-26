@@ -9,7 +9,6 @@ import tpat from '@/page/tpat'
 import VueRouter from 'vue-router';
 
 Vue.use(Router)
-console.log(this)
 const routes=[
   {
     path: '/',

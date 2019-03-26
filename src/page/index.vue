@@ -1,5 +1,6 @@
 <template>
   <div class="index">
+    <img :src="aniImg" alt="" class="ani" v-show="aniShow">
     <swiper :options="swiperOption" ref="mySwiper">
       <!-- 第一屏 -->
       <swiper-slide :style="{backgroundImage:'url('+require('../assets/img/index/bg_1.jpg')+')'}">
@@ -157,10 +158,8 @@
             <input type="text" class="last" :placeholder="$t('index.part_7.form2')">
             <input type="text" class="email" :placeholder="$t('index.part_7.form3')">
             <input type="text" class="tel" :placeholder="$t('index.part_7.form4')">
-            <textarea name="" class="message" :placeholder="$t('index.part_7.form5')"></textarea>
-            <div class="submit">
-              {{$t('index.part_7.submit')}}
-            </div>
+            <textarea name class="message" :placeholder="$t('index.part_7.form5')"></textarea>
+            <div class="submit">{{$t('index.part_7.submit')}}</div>
           </div>
         </div>
         <my-foot></my-foot>
@@ -184,6 +183,11 @@ export default {
   },
   data() {
     return {
+      timer: null, //序列帧计时器
+      count: 12,
+      imgs:[],
+      aniShow:false,
+      aniImg:"../static/img/logo_012.jpg",
       icon: {
         backgroundImage:
           "url(" + require("../assets/img/index/index_icon.png") + ")"
@@ -220,11 +224,46 @@ export default {
   //监控data中的数据变化
   watch: {},
   //方法集合
-  methods: {},
+  methods: {
+    //预加载序列帧图片
+    preload() {
+      for (var i = 13; i < 118; i++) {
+        if (i < 100) {
+          this.imgs.push("../static/img/logo_0" + i + ".jpg");
+        } else {
+          this.imgs.push("../static/img/logo_" + i + ".jpg");
+        }
+      }
+      for (let img of this.imgs) {
+        let image = new Image();
+        image.src = img;
+        image.onload = () => {
+          this.count++;
+          if(this.count==117){
+            this.ani()
+          }
+        };
+      }
+    },
+    //执行序列帧动画
+    ani(){
+      let _count=0
+      this.timer=setInterval(()=>{
+        this.aniImg=this.imgs[_count]
+        _count++
+        if(_count==105){
+          clearInterval(this.timer)
+          this.aniShow=false
+        }
+      },50)
+    }
+  },
   //生命周期 - 创建完成（可以访问当前this实例）
   created() {},
   //生命周期 - 挂载完成（可以访问DOM元素）
-  mounted() {}
+  mounted() {
+    // this.preload()
+  }
 };
 </script>
 <style lang='less' scoped>
@@ -232,6 +271,14 @@ export default {
   width: 100%;
   height: 100%;
   position: relative;
+  .ani{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 10000;
+  }
   .swiper-container {
     width: 100%;
     height: 100%;
@@ -304,7 +351,7 @@ export default {
           width: 8rem;
           height: 100%;
           position: absolute;
-          
+
           top: 0;
           padding-top: 0.39rem;
           h1 {
@@ -313,7 +360,7 @@ export default {
             font-family: "biminbold";
             text-align: right;
             position: relative;
-            &::after{
+            &::after {
               content: "";
               background: #2a6ec1;
               width: 1.9rem;
@@ -394,10 +441,10 @@ export default {
           .avatar {
             background-position: -3.7rem 0;
           }
-          .icon3{
+          .icon3 {
             background-position: -4.14rem -3.7rem;
           }
-          .icon4{
+          .icon4 {
             background-position: -4.14rem -4.14rem;
           }
         }
@@ -405,10 +452,10 @@ export default {
           .avatar {
             background-position: -7.39rem 0;
           }
-          .icon5{
+          .icon5 {
             background-position: -4.58rem -4.14rem;
           }
-          .icon6{
+          .icon6 {
             background-position: -4.58rem -3.7rem;
           }
         }
@@ -416,10 +463,10 @@ export default {
           .avatar {
             background-position: -11.09rem 0;
           }
-          .icon7{
+          .icon7 {
             background-position: -5.02rem -3.7rem;
           }
-          .icon8{
+          .icon8 {
             background-position: -5.02rem -4.14rem;
           }
         }
@@ -427,135 +474,138 @@ export default {
           .avatar {
             background-position: -0rem -3.7rem;
           }
-          .icon9{
+          .icon9 {
             background-position: -5.46rem -3.7rem;
           }
-          .icon10{
-             background-position: -5.46rem -4.14rem;
+          .icon10 {
+            background-position: -5.46rem -4.14rem;
           }
         }
         &.left {
-          .avatar{
-            left:0;
+          .avatar {
+            left: 0;
           }
-          .text{
+          .text {
             right: 0;
           }
         }
         &.right {
           .avatar {
-            right:0;
+            right: 0;
           }
-          .text{
+          .text {
             left: 0;
-            h1{
+            h1 {
               text-align: left;
-              &::after{
+              &::after {
                 left: 0;
               }
             }
           }
-          .box{
+          .box {
             padding-left: 2.93rem;
-            .more{
+            .more {
               left: 0;
             }
           }
         }
       }
-      .form{
-          width: 12.8rem;
-          height:7rem;
-          background: rgba(0,0,0,0.3);
-          margin: 0.8rem auto;
-          padding: 0.4rem 0.6rem;
-          position: relative;
-          h1{
+      .form {
+        width: 12.8rem;
+        height: 7rem;
+        background: rgba(0, 0, 0, 0.3);
+        margin: 0.8rem auto;
+        padding: 0.4rem 0.6rem;
+        position: relative;
+        h1 {
+          color: white;
+          text-align: center;
+          font-size: 0.5rem;
+          font-family: "bauhs93";
+          color: white;
+          font-weight: 500;
+          text-shadow: 0px 7px 10px #333333;
+        }
+        h3 {
+          color: white;
+          font-size: 0.24rem;
+          text-align: center;
+          font-weight: 500;
+        }
+        .left {
+          padding-top: 0.5rem;
+          width: 50%;
+          display: inline-block;
+          .flex {
+            margin-bottom: 0.3rem;
+          }
+          .icon {
+            background-size: 15rem 8rem;
+            width: 0.86rem;
+            height: 0.86rem;
+          }
+          .icon1 {
+            background-position: -3.7rem -4.58rem;
+          }
+          .icon2 {
+            background-position: -4.57rem -4.58rem;
+          }
+          .icon3 {
+            background-position: -3.7rem -5.45rem;
+          }
+          .icon4 {
+            background-position: -4.57rem -5.45rem;
+          }
+          p {
             color: white;
+            font-size: 0.2rem;
+            line-height: 0.86rem;
+            margin-left: 0.55rem;
+          }
+        }
+        .right {
+          padding-top: 0.4rem;
+          vertical-align: top;
+          width: 49%;
+          display: inline-block;
+          input,
+          textarea {
+            display: block;
+            background: transparent;
+            border: 1px solid #e1dad9;
+            margin-bottom: 0.2rem;
+            border-radius: 0.05rem;
+            outline: none;
+            color: #b3b3b3;
+            text-indent: 0.1rem;
+            font-size: 0.2rem;
+          }
+          .first,
+          .last {
+            width: 2.38rem;
+            height: 0.44rem;
+          }
+          .email,
+          .tel {
+            width: 5.2rem;
+            height: 0.44rem;
+          }
+          .message {
+            width: 5.2rem;
+            height: 1.31rem;
+          }
+          .submit {
+            color: white;
+            font-size: 0.2rem;
+            width: 1.68rem;
+            height: 0.44rem;
+            border: 0.02rem solid #2a6ec1;
+            border-radius: 0.08rem;
             text-align: center;
-            font-size: 0.5rem;
-            font-family: "bauhs93";
-            color: white;
-            font-weight: 500;
-            text-shadow: 0px 7px 10px #333333;
+            line-height: 0.44rem;
+            margin: 0.3rem auto;
           }
-          h3{
-            color: white;
-            font-size: 0.24rem;
-            text-align: center;
-            font-weight: 500;
-          }
-          .left{
-            padding-top: 0.5rem;
-            width: 50%;
-            display: inline-block;
-            .flex{
-              margin-bottom: 0.3rem;
-            }
-            .icon{
-              background-size: 15rem 8rem;
-              width: 0.86rem;
-              height:0.86rem;
-            }
-            .icon1{
-              background-position: -3.7rem -4.58rem;
-            }
-            .icon2{
-              background-position: -4.57rem -4.58rem;
-            }
-            .icon3{
-              background-position: -3.7rem -5.45rem;
-            }
-            .icon4{
-              background-position: -4.57rem -5.45rem;
-            }
-            p{
-              color: white;
-              font-size: 0.2rem;
-              line-height: 0.86rem;
-              margin-left: 0.55rem;
-            }
-          }
-          .right{
-            padding-top: 0.4rem;
-            vertical-align: top;
-            width: 49%;
-            display: inline-block;
-            input,textarea{
-              display: block;
-              background: transparent;
-              border:1px solid #e1dad9;
-              margin-bottom: 0.2rem;
-              border-radius: 0.05rem;
-              outline: none;
-              color:#b3b3b3;
-              text-indent: 0.1rem;
-              font-size: 0.2rem;
-            }
-            .first,.last{
-              width: 2.38rem;
-              height:0.44rem;
-            }
-            .email,.tel{
-              width: 5.2rem;
-              height:0.44rem;
-            }
-            .message{
-              width: 5.2rem;
-              height: 1.31rem;
-            }
-            .submit{
-              color: white;
-              font-size: 0.2rem;
-              width:1.68rem;
-              height: 0.44rem;
-              border: 0.02rem solid #2a6ec1;
-              border-radius: 0.08rem;
-              text-align: center;
-              line-height: 0.44rem;
-              margin: 0.3rem auto;
-            }
-          }
+        }
       }
     }
   }

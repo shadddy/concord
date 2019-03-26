@@ -80,5 +80,37 @@ module.exports={
         title2:'Our Mission',
         text1:"Concord Express was founded in 1976 by Joseph Chang. Headquartered in Hong Kong. Joseph's vision was to create a International forwarder that would provide a trustworthy, on-time and cost effective option for total logistical support. Concord Express can trace it's success, to this dedicated vision and commitment by Mr. Chang to his customers.  For over 40 years Concord Express has delivered its customers assets globally, and used the Concord vision to improve customers service levels and most importantly their bottom lines.",
         text2:["To design and implement transportation and logistics programs which support the competitive strategies of  our customers conducting international trade.","The fundamental goals of our programs are to deliver cost effective and reliable transportation, inventory management, customs brokerage, distribution and supply chain management solutions."]
+    },
+    service:{
+        nav1:{
+            id:1,
+            name:'Ocean Transportation',
+            pos:'background-position:0 0;',
+            act:'background-position:0 -2.33rem;'
+        },
+        nav2:{
+            id:2,
+            name:'Air Freight Transportation',  
+            pos:'background-position:-2.28rem 0;',
+            act:'background-position:-2.28rem -2.33rem;'
+        },
+        nav3:{
+            id:3,
+            name:'Ground Transportation', 
+            pos:'background-position:-4.56rem 0;',
+            act:'background-position:-4.56rem -2.33rem;'  
+        },
+        nav4:{
+            id:4,
+            name:'Warehousing & Storage',  
+            pos:'background-position:-6.84rem 0;',
+            act:'background-position:-6.84rem -2.33rem;'
+        },
+        nav5:{
+            id:5,
+            name:'Customs Brokerage',  
+            pos:'background-position:-9.12rem 0;',
+            act:'background-position:-9.12rem -2.33rem;'
+        }
     }
 }
