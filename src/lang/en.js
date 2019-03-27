@@ -86,13 +86,16 @@ module.exports={
             id:1,
             name:'Ocean Transportation',
             pos:'background-position:0 0;',
-            act:'background-position:0 -2.33rem;'
+            act:'background-position:0 -2.33rem;',
+            text:'Concord Express offers a full range of inbound & outbound ocean freight services. Our strong relationships with carriers, allow us to guarantee space & offer cost effective solutions.',
+            list:['Full Container Loads(FCL)',"Less Than Container Loads (LCL)","Bulk and Breakbulk","Consolidation","Port-to-Port / Port-to-door / Door-to-door","Bonded Services","Vendor assembly"]
         },
         nav2:{
             id:2,
             name:'Air Freight Transportation',  
             pos:'background-position:-2.28rem 0;',
-            act:'background-position:-2.28rem -2.33rem;'
+            act:'background-position:-2.28rem -2.33rem;',
+            list:['Bulk and Breakbulk',"Consolidation","Cargo with special requirements","Airport-to-airport / Airport-to-door / Door-to-door","Garment On Hanger shipment handling","Crating & packaging","Air Charter Service","Vendor assembly","Customs clearance"]
         },
         nav3:{
             id:3,

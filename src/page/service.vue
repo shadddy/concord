@@ -1,15 +1,38 @@
 <template>
   <div class="service">
     <my-head></my-head>
-    <div class="inner-banner"></div>
+    <div
+      class="inner-banner"
+      :style="curbanner"
+    ></div>
     <div class="content">
       <ul>
-        <li v-for="(item,index) in $t('service')" :key="index" :class="{act:item.id==curNav}" @click="curNav=item.id">
-          <div class="icon" :style="item.id==curNav?item.act:item.pos"></div>
+        <li
+          v-for="(item,index) in $t('service')"
+          :key="index"
+          :class="{act:item.id==curNav}"
+          @click="change(item.id)"
+        >
+          <div
+            class="icon"
+            :style="item.id==curNav?item.act:item.pos"
+          ></div>
           <p>{{item.name}}</p>
         </li>
       </ul>
       <div class="line"></div>
+      <div class="text">
+        <h1>{{curList.title}}</h1>
+        <p>{{curList.text}}</p>
+        <ul>
+          <li
+            v-for="(item,index) in curList.detail"
+            :key="index"
+          >
+            {{item}}
+          </li>
+        </ul>
+      </div>
     </div>
     <my-foot></my-foot>
   </div>
@@ -25,69 +48,134 @@ export default {
   },
   data() {
     return {
-      curNav:1,
-      list:[
-
-      ]
+      curNav: 1,
+      banner: [
+        "background-position:0 -4.5rem;",
+        "background-position:0 -9rem;",
+        "background-position:0 -13.5rem;",
+        "background-position:0 -18rem;",
+        "background-position:0 -22.5rem;"
+      ],
+      curbanner: null,
+      list: [
+        {
+          title: this.$t("service.nav1.name"),
+          text: this.$t("service.nav1.text"),
+          detail: this.$t("service.nav1.list")
+        },
+        {
+          title: this.$t("service.nav2.name"),
+          text: this.$t("service.nav2.text"),
+          detail: this.$t("service.nav2.list")
+        }
+      ],
+      curList: {}
     };
   },
   computed: {},
-  methods: {},
+  methods: {
+    change(num) {
+      this.curNav = num;
+      this.curbanner = this.banner[num - 1];
+    }
+  },
   created() {},
   mounted() {
+    this.curList = this.list[this.curNav - 1];
   }
 };
 </script>
 <style lang='less' scoped>
-.service{
-  .inner-banner{
+.service {
+  overflow: hidden;
+  .inner-banner {
     background-position: 0 -4.5rem;
+    transition: 0.3s;
   }
   .footer {
     position: relative;
     padding-top: 0.01rem;
   }
-  .content{
+  .content {
     width: 12.92rem;
     margin: 0 auto;
     padding-top: 0.6rem;
-    ul{
+    ul {
       display: flex;
       display: -webkit-flex;
       justify-content: space-around;
-      li{
+      li {
         width: 2.28rem;
         cursor: pointer;
-        .icon{
+        .icon {
           width: 2.28rem;
           height: 2.33rem;
-          background-image: url('../assets/img/service/icon.png');
-          background-size:11.4rem 6rem;
+          background-image: url("../assets/img/service/icon.png");
+          background-size: 11.4rem 6rem;
           margin-bottom: 0.2rem;
         }
-        p{
+        p {
           text-align: center;
           font-size: 0.28rem;
-          font-family: 'biminbold';
+          font-family: "biminbold";
           width: 2rem;
-          margin:0 auto;
+          margin: 0 auto;
           line-height: 0.35rem;
         }
-        &.act{
-          p{
+        &.act {
+          p {
             color: #2a6ec1;
           }
         }
       }
     }
-    .line{
-      background-image: url('../assets/img/service/icon.png');
-      background-size:11.4rem 6rem;
+    .line {
+      background-image: url("../assets/img/service/icon.png");
+      background-size: 11.4rem 6rem;
       width: 10.96rem;
       height: 0.2rem;
       background-position: 0 -4.89rem;
       margin: 0.8rem auto 0 auto;
-
+    }
+    .text {
+      margin-top: 0.4rem;
+      width: 100%;
+      padding: 0 0.8rem;
+      h1 {
+        color: #333;
+        font-family: "biminbold";
+        font-size: 0.42rem;
+        text-align: center;
+        position: relative;
+        margin-bottom: 0.6rem;
+        &::after {
+          content: "";
+          background: #2a6ec1;
+          width: 2rem;
+          height: 0.06rem;
+          display: block;
+          position: absolute;
+          left: 50%;
+          transform: translateX(-50%);
+          bottom: -0.05rem;
+        }
+      }
+      p{
+        color: #4c4c4c;
+        font-size: 0.2rem;
+        letter-spacing: 1px;
+      }
+      ul{
+        width: 100%;
+        position: relative;
+        flex-wrap: wrap;
+        display: flex;
+        display: -webkit-flex;
+        justify-content: flex-start;
+        li{
+            width: 50%;
+        }
+      }
     }
   }
 }
