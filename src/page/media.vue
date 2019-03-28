@@ -1,5 +1,5 @@
 <template>
-  <div class="tpat">
+  <div class="media">
     <my-head></my-head>
     <div class="inner-banner"></div>
     <my-foot></my-foot>
@@ -24,10 +24,10 @@ export default {
 };
 </script>
 <style lang='less' scoped>
-.tpat{
+.media {
   overflow: hidden;
   .inner-banner {
-    background-position: 0 -31.5rem;
+    background-position: 0 -36rem;
     transition: 0.3s;
   }
   .footer {

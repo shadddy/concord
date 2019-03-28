@@ -3,7 +3,7 @@
       <div class="content">
           <ul>
               <li v-for="(item,index) in list" :key="index">
-                  {{item.name}}
+                  <router-link :to="item.url">{{item.name}}</router-link>
               </li>
           </ul>
           <p>{{$t('footer.copyright')}}</p>
@@ -19,19 +19,19 @@ export default {
         list:[
             {
                 name:this.$t("footer.nav1"),
-                url:{}
+                url:{path:'media'}
             },
             {
                 name:this.$t("footer.nav2"),
-                url:{}
+                url:{path:'career'}
             },
             {
                 name:this.$t("footer.nav3"),
-                url:{}
+                url:{path:'privacy'}
             },
             {
                 name:this.$t("footer.nav4"),
-                url:{}
+                url:{path:'faq'}
             }
         ]
     };
@@ -54,7 +54,7 @@ export default {
             margin:0.32rem auto 0.3rem auto;
             width: 9.4rem;
             li{
-                color: #e5e5e5;
+                
                 display: inline-block;
                 font-size: 0.18rem;
                 width: 2.35rem;
@@ -62,6 +62,9 @@ export default {
                 border-right: 1px solid #e5e5e5;
                 &:nth-of-type(4){
                     border-right:none;
+                }
+                a{
+                    color: #e5e5e5;
                 }
             }
         }
