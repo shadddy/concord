@@ -146,6 +146,15 @@ module.exports={
             act:'background-position:-4.56rem -5rem;',
         }
     },
+    career:{
+        title:'Career',
+        list:['We are constantly looking beyond the traditional approach to global logistics and transportation management. We not only strive to deliver innovative, cost-effective solutions for our clients, we make certain we do.','Concord Express has an experienced team around the world and are continuing to grow. If you are interested in a career opportunity with Concord Express, we want to hear from you! Please complete the form on this page and we will get back to you just as soon as we can.'],
+        name:'Your Name',
+        email:'Your E-mail',
+        message:'Message',
+        notice:'Please include desired position and country lived in',
+        submit:'Submit'
+    },
     privacy:{
         name:'Privacy Policy',
         text:'This Privacy Policy governs the manner in which Concord Express collects, uses, maintains and discloses information collected from users (each, a “User”). This Privacy Policy applies to the Site and all products and services offered by Concord Express.',
