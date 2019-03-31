@@ -8,6 +8,7 @@
       <li
         v-for="(item,index) in nav"
         :key="index"
+        :class="{act:index==$route.meta.dataIndex}"
       >
         <router-link :to="item.url">{{item.name}}</router-link>
       </li>
@@ -92,11 +93,31 @@ export default {
     li {
       font-size: 0.24rem;
       display: inline-block;
-      color: white;
       font-family: "HelveticaExt-Normal";
       margin-left: 0.89rem;
+      position: relative;
       a{
         color: white;
+        transition: .3s;
+        &:hover{
+          color: #1a478b !important;
+        }
+      }
+      &.act{
+         a{
+           color: #1a478b !important;
+         }
+      }
+      &.act:after{
+        content: url('../assets/img/act.png');
+        width: 0.27rem;
+        height: 0.03rem;
+        display: block;
+        position: absolute;
+        bottom: 0.2rem;
+        left: 50%;
+        transform: translateX(-50%);
+
       }
     }
   }

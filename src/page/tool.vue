@@ -16,19 +16,79 @@
       </ul>
       <div class="line"></div>
       <!-- <transition name="fade"> -->
-        <div class="text" v-show="curNav==1">
-          <h1>{{$t('tool.nav1.name')}}</h1>
+      <div class="text" v-show="curNav==1">
+        <h1>{{$t('tool.nav1.name')}}</h1>
+        <p style="color:#000">{{$t('tool.nav1.title')}}</p>
+        <p class="icon">{{$t('tool.nav1.title1')}}</p>
+        <p>{{$t('tool.nav1.text1')}}</p>
+        <p>{{$t('tool.nav1.text2')}}</p>
+        <p class="icon">{{$t('tool.nav1.title2')}}</p>
+        <p>{{$t('tool.nav1.text3')}}</p>
+        <div class="table">
+          <ul>
+            <li class="title">{{$t('tool.nav1.list1.name')}}</li>
+            <li v-for="(item,index) in $t('tool.nav1.list1.list')" :key="index">{{item}}</li>
+          </ul>
+          <ul>
+            <li class="title">{{$t('tool.nav1.list2.name')}}</li>
+            <li v-for="(item,index) in $t('tool.nav1.list2.list')" :key="index">{{item}}</li>
+          </ul>
+          <ul>
+            <li class="title">{{$t('tool.nav1.list3.name')}}</li>
+            <li v-for="(item,index) in $t('tool.nav1.list3.list')" :key="index">{{item}}</li>
+          </ul>
         </div>
+
+        <div class="table2">
+          <ul class="first">
+            <li class="title"></li>
+            <li class="top">{{$t('tool.nav1.sea')}}</li>
+            <li class="bottom">{{$t('tool.nav1.air')}}</li>
+          </ul>
+          <ul>
+            <li class="title">{{$t('tool.nav1.list4.name')}}</li>
+            <li
+              v-for="(item,index) in $t('tool.nav1.list4.list')"
+              :class="{blue:index>3}"
+              :key="index"
+            >{{item}}</li>
+          </ul>
+          <ul>
+            <li class="title">{{$t('tool.nav1.list5.name')}}</li>
+            <li
+              v-for="(item,index) in $t('tool.nav1.list5.list')"
+              :class="{blue:index>3}"
+              :key="index"
+            >{{item}}</li>
+          </ul>
+          <ul>
+            <li class="title">{{$t('tool.nav1.list6.name')}}</li>
+            <li
+              v-for="(item,index) in $t('tool.nav1.list6.list')"
+              :class="{blue:index>3}"
+              :key="index"
+            >{{item}}</li>
+          </ul>
+        </div>
+      </div>
       <!-- </transition> -->
       <!-- <transition name="fade"> -->
-        <div class="text" v-show="curNav==2">
-          <h1>{{$t('tool.nav2.name')}}</h1>
-        </div>
+      <div class="text" v-show="curNav==2">
+        <h1>{{$t('tool.nav2.name')}}</h1>
+      </div>
       <!-- </transition> -->
       <!-- <transition name="fade"> -->
-        <div class="text" v-show="curNav==3">
-          <h1>{{$t('tool.nav3.name')}}</h1>
-        </div>
+      <div class="text text-3" v-show="curNav==3">
+        <h1>{{$t('tool.nav3.name')}}</h1>
+        <p>
+          {{$t('tool.nav3.btn1')}}
+          <span class="blue">  ({{$t('tool.nav3.download')}})</span>
+        </p>
+        <p>
+          {{$t('tool.nav3.btn2')}}
+          <span class="blue">  ({{$t('tool.nav3.download')}})</span>
+        </p>
+      </div>
       <!-- </transition> -->
     </div>
     <my-foot></my-foot>
@@ -114,9 +174,8 @@ export default {
     .text {
       // position: absolute;
       // top: 4rem;
-      margin-top: 0.4rem;
-      display: inline-block;
-      width: 100%;
+      margin: 0.4rem auto 0 auto;
+      width: 11rem;
       transition: 0.3s;
       h1 {
         color: #333;
@@ -135,6 +194,125 @@ export default {
           left: 50%;
           transform: translateX(-50%);
           bottom: -0.05rem;
+        }
+      }
+      p {
+        font-size: 0.2rem;
+        margin-bottom: 0.3rem;
+        letter-spacing: 1px;
+      }
+      .icon {
+        position: relative;
+        padding-left: 0.3rem;
+        font-weight: bold;
+        &::before {
+          content: "";
+          background: #2a6ec1;
+          display: block;
+          width: 0.1rem;
+          height: 0.1rem;
+          position: absolute;
+          top: 0.09rem;
+          border-radius: 50%;
+          left: 0;
+        }
+      }
+      .table {
+        margin-top: 0.8rem;
+        width: 10.6rem;
+        display: flex;
+        display: -webkit-flex;
+        ul {
+          width: 3.53rem;
+          position: relative;
+          display: block;
+          border: 2px solid #e2e4e8;
+          li {
+            text-align: center;
+            width: 100%;
+            display: block;
+            height: 0.6rem;
+            line-height: 0.6rem;
+            font-size: 0.2rem;
+            color: #4c4c4c;
+            &.title {
+              background: #b0cdf1 !important;
+              color: #000;
+              font-weight: bold;
+            }
+            &:nth-child(odd) {
+              background: #e0ebfa;
+            }
+          }
+        }
+      }
+      .table2 {
+        margin-top: 0.4rem;
+        margin-bottom: 3rem;
+        width: 10.6rem;
+        display: flex;
+        display: -webkit-flex;
+        .first {
+          width: 1.45rem;
+          .top {
+            height: 2.4rem;
+            color: #4c4c4c;
+            font-size: 0.2rem;
+            font-weight: bold;
+            line-height: 2.4rem;
+          }
+          .bottom {
+            height: 4.8rem;
+            background: #e0ebfa;
+            color: #4c4c4c;
+            font-size: 0.2rem;
+            font-weight: bold;
+            line-height: 4.8rem;
+          }
+        }
+        ul {
+          width: 3.05rem;
+          position: relative;
+          display: block;
+          border: 2px solid #e2e4e8;
+          li {
+            text-align: center;
+            width: 100%;
+            display: block;
+            height: 0.6rem;
+            line-height: 0.6rem;
+            font-size: 0.2rem;
+            color: #4c4c4c;
+            &.title {
+              background: #b0cdf1 !important;
+              color: #000;
+              font-weight: bold;
+            }
+            &.blue {
+              background: #e0ebfa;
+            }
+          }
+        }
+      }
+      &.text-3 {
+        p {
+          padding-left: 0.32rem;
+          position: relative;
+          &::before {
+            content: "";
+            background: #2a6ec1;
+            display: block;
+            width: 0.1rem;
+            height: 0.1rem;
+            position: absolute;
+            top: 0.08rem;
+            border-radius: 50%;
+            left: 0;
+          }
+        }
+        .blue{
+          color:#2a6ec1;
+          cursor: pointer;
         }
       }
     }

@@ -11,6 +11,7 @@ import career from '@/page/career'
 import privacy from '@/page/privacy'
 import faq from '@/page/faq'
 import newsDetail from '@/page/newsDetail'
+import quote from '@/page/quote'
 
 import VueRouter from 'vue-router';
 
@@ -22,7 +23,8 @@ const routes=[
     component: index,
     meta:{
       isIndex:true,
-      title:'title.index'
+      title:'title.index',
+      dataIndex:0
     }
   },
   {
@@ -31,7 +33,8 @@ const routes=[
     component:about,
     meta:{
       isIndex:false,
-      title:'About'
+      title:'About',
+      dataIndex:1
     }
   },
   { 
@@ -40,7 +43,8 @@ const routes=[
     component:service,
     meta:{
       isIndex:false,
-      title:'Service'
+      title:'Service',
+      dataIndex:2
     }
   },
   {
@@ -49,7 +53,8 @@ const routes=[
     component:tool,
     meta:{
       isIndex:false,
-      title:'Tool'
+      title:'Tool',
+      dataIndex:3
     }
   },
   {
@@ -58,7 +63,8 @@ const routes=[
     component:location,
     meta:{
       isIndex:false,
-      title:'Location'
+      title:'Location',
+      dataIndex:4
     }
   },
   {
@@ -67,7 +73,8 @@ const routes=[
     component:tpat,
     meta:{
       isIndex:false,
-      title:'C-TPAT'
+      title:'C-TPAT',
+      dataIndex:5
     }
   },
   {
@@ -113,6 +120,15 @@ const routes=[
     meta:{
       isIndex:false,
       title:'newsDetail'
+    }
+  },
+  {
+    path:'/quote',
+    name:'quote',
+    component:quote,
+    meta:{
+      isIndex:false,
+      title:'quote'
     }
   }
 ]

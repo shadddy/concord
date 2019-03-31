@@ -1,9 +1,12 @@
 <template>
   <div class="index">
-    <img :src="aniImg" alt="" class="ani" v-show="aniShow">
+    <transition name="fade">
+      <img :src="aniImg" alt="" class="ani" v-show="aniShow">
+    </transition>
+    
     <swiper :options="swiperOption" ref="mySwiper">
       <!-- 第一屏 -->
-      <swiper-slide :style="{backgroundImage:'url('+require('../assets/img/index/bg_1.jpg')+')'}">
+      <swiper-slide >
         <!-- 头部导航 -->
         <my-head></my-head>
         <div class="section part-1">
@@ -11,7 +14,7 @@
             <swiper-slide
               v-for="(i,ind) in 3"
               :key="'banner-'+ind"
-              :style="{backgroundImage:'url('+require('../assets/img/index/bg_'+(ind+1)+'.jpg')+')'}"
+              :style="{backgroundImage:'url('+require('../assets/img/index/banner_1_'+(ind+1)+'.jpg')+')'}"
             ></swiper-slide>
           </swiper>
           <h1 class="ab">{{$t('index.part_1.title')}}</h1>
@@ -154,12 +157,12 @@
             </div>
           </div>
           <div class="right">
-            <input type="text" class="first" :placeholder="$t('index.part_7.form1')">
-            <input type="text" class="last" :placeholder="$t('index.part_7.form2')">
-            <input type="text" class="email" :placeholder="$t('index.part_7.form3')">
-            <input type="text" class="tel" :placeholder="$t('index.part_7.form4')">
-            <textarea name class="message" :placeholder="$t('index.part_7.form5')"></textarea>
-            <div class="submit">{{$t('index.part_7.submit')}}</div>
+            <input type="text" class="first" :placeholder="$t('index.part_7.form1')" v-model="firstName">
+            <input type="text" class="last" :placeholder="$t('index.part_7.form2')" v-model="lastName">
+            <input type="text" class="email" :placeholder="$t('index.part_7.form3')" v-model="email">
+            <input type="text" class="tel" :placeholder="$t('index.part_7.form4')" v-model="tel">
+            <textarea name class="message" :placeholder="$t('index.part_7.form5')" v-model="message"></textarea>
+            <div class="submit" @click="submit">{{$t('index.part_7.submit')}}</div>
           </div>
         </div>
         <my-foot></my-foot>
@@ -192,6 +195,11 @@ export default {
         backgroundImage:
           "url(" + require("../assets/img/index/index_icon.png") + ")"
       },
+      firstName:'',
+      lastName:'',
+      email:'',
+      tel:'',
+      message:'',
       //翻页配置
       swiperOption: {
         autoplay: 3000,
@@ -208,6 +216,7 @@ export default {
         autoplay: 3000,
         speed: 1000,
         mousewheel: true,
+        loop:true,
         pagination: {
           el: ".swiper-pagination",
           clickable: true
@@ -256,13 +265,32 @@ export default {
           this.aniShow=false
         }
       },50)
+    },
+    submit(){
+      if(this.firstName==''){
+        this.$Message.warning('FirstName is required')
+        return
+      }else if(this.lastName==''){
+        this.$Message.warning('LastName is required')
+        return
+      }else if(this.email==''){
+        this.$Message.warning('E-mail is required')
+        return
+      }else if(this.tel==''){
+        this.$Message.warning('Telephone is required')
+        return
+      }else if(this.message==''){
+        this.$Message.warning('Message is required')
+        return
+      }
+      this.$Message.success('Your info has been sent')
     }
   },
   //生命周期 - 创建完成（可以访问当前this实例）
   created() {},
   //生命周期 - 挂载完成（可以访问DOM元素）
   mounted() {
-    // this.preload()
+    this.preload()
   }
 };
 </script>
@@ -604,6 +632,11 @@ export default {
             text-align: center;
             line-height: 0.44rem;
             margin: 0.3rem auto;
+            transition: .3s;
+            cursor: pointer;
+            &:hover{
+              background: #2a6ec1;
+            }
           }
         }
       }

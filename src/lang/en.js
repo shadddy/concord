@@ -132,6 +132,38 @@ module.exports={
             name:'Calculator',
             pos:'background-position:0 -7.33rem;',
             act:'background-position:0 -5rem;',
+            title:'The cubic volume of a consignment is established by applying the greatest length, the greatest width and the greatest height of the consignmentsor its packages.',
+            title1:'Inches to cubic feet',
+            title2:'Centimeters to cubic meters',
+            text1:'Multiply the greatest length by the greatest width and then multiply by the greatest height. Divide this total by 1728 to convertthis into cubic feet.',
+            text2:'64 x 61 x 55 = 214,720/ 1728 = 124.26 FF3',
+            text3:'Multiply the greatest length by the greatest width and then multiply by the greatestheight. Divide this total by 1,000,000 = 3.56 CBM. 162 x 156 x 141 =3,563,351 / 1,000,000 = 3.56 cbm',
+            list1:{
+                name:'When You Know:',
+                list:['CBM Cubic Meters','CU/FT Cubic Feet','KG Kilograms','LB Pounds','CM Centimeters','IN Inches','FT Feet','Fahrenheit','Celsius','U.S. Gallons','Liters','Short Ton','Metric Ton','Long Ton','Metric Ton'],
+            },
+            list2:{
+                name:'Multiply By:',
+                list:['35.3146','.0283','2.2046','.4536','.3937','2.54','30.48','(F-32/1.8)','(C x 1.8 + 32)','3.78','.264','.9072','1.1023','1.01605','.984205']
+            },
+            list3:{
+                name:'To Find',
+                list:['Cubic Feet CU/FT','Cubic Meters CBM','Pounds LB','Kilograms KG','Inches IN','Centimeters CM','Centimeters CM','Celsius','Fahrenheit','Liters','U.S. Gallons','Metric Ton','Short Ton','Metric Ton','Long Ton']
+            },
+            sea:'SEA',
+            air:'AIR',
+            list4:{
+                name:'Container Size',
+                list:['20’','40’','40’HQ','45’','Main Deck','LD-7','Lower Deck','LD-11','LD-8','LD-4','LD-3','LD-2']
+            },
+            list5:{
+                name:'Maximum/Internal CU FT',
+                list:['1170','2391','2700','3055','606','379.9','242','242','243','174','150','120']
+            },
+            list6:{
+                name:'Volume CBM',
+                list:['33.2','67.7','76.4','86.5','17.16','10.0','6.9','6.9','6.9','5','4','3']
+            }
         },
         nav2:{
             id:2,
@@ -144,6 +176,9 @@ module.exports={
             name:'Instruction Forms',
             pos:'background-position:-4.56rem -7.33rem;',
             act:'background-position:-4.56rem -5rem;',
+            btn1:'Air Shipment Instruction Form ',
+            btn2:'Ocean Shipment Instruction Form ',
+            download:'Download'
         }
     },
     career:{
@@ -153,7 +188,7 @@ module.exports={
         email:'Your E-mail',
         message:'Message',
         notice:'Please include desired position and country lived in',
-        submit:'Submit'
+        send:'SEND'
     },
     privacy:{
         name:'Privacy Policy',
@@ -202,5 +237,110 @@ module.exports={
         ],
         title1:'COPYRIGHT NOTICE',
         title2:'SERVICE BY THIRD PARTIES'
-    }
+    },
+    location:{
+        tel:'Tel',
+        fax:'Fax',
+        email:'E-mail',
+        asia:'ASIA',
+        us:'UNITED STATES',
+        post:'Post code',
+        bottom:'Concord have agents agreements in most major markets worldwide',
+        Hongkong:{
+            name:'Hong Kong, (Headquarter )',
+            list:[
+                {
+                    title:'Concord Express Ltd.',
+                    address:'Suite No. 8, 36/F Skyline Tower, 39 Wang Kwong Road, Kowloon Bay, Kowloon, Hong Kong.',
+                    tel:'(852) 2753 8313',
+                    fax:'(852) 2795 0342',
+                    email:'mailbox@concordhk.com'
+                },
+                {
+                    title:'Operations Department',
+                    address:'Unit 50-52, 2/F., Sino Industrial Plaza, No. 9 Kai Cheung Road, Kowloon Bay, Kowloon，Hong Kong.',
+                    tel:'(852) 2717 0998',
+                    fax:'(852) 2346 7718',
+                    email:'export@concordhk.com'
+                },
+                {
+                    title:'Import Department',
+                    address:'',
+                    tel:'(852) 2717 2324',
+                    fax:'(852) 2346 7718',
+                    email:'import@concordhk.com'
+                }
+            ]
+        },
+        Guangzhou:{
+            name:'Guangzhou',
+            title:'Concord Express Ltd. Guangzhou',
+            address:'Rm.1302.36 Feng Gang Road. Go Ye Avenue Guangzhou',
+            tel:'(86) 13600472897',
+            email:'zhong.wu@concordcn.com'
+        },
+        Zhongshan:{
+            name:'Zhongshan',
+            title:'JEC Global Logistics Co., Ltd..',
+            address:'No. 22, Shichong Road,Torch Hi-tech Industrial Development Zone,ZhongShan City, Guang Dong，China.',
+            tel:'(86) 760 8533 9000',
+            fax:'(86) 760 8531 5740',
+            email:'Jeczhongshan@jecgl.com'
+        },
+        Qingdao:{
+            name:'Qingdao',
+            title:'CE Global Logistics Co. Ltd.  Qingdao Branch',
+            address:'Room 3130 Business Building B,Wanda Plaza, No. 33 Lianyungang Road,Qingdao, China 266000',
+            tel:'(86) 532-55685797',
+            fax:'(86) 532-55685172',
+            email:'david.guan@concordcn.com'
+        },
+        Shanghai:{
+            name:'Shanghai',
+            title:'CE Global Logistics Co.,Ltd',
+            address:'Room G, Five floor, No.432 West HuaiHai Road, Shanghai, China.',
+            tel:'(86) 021 6276 1122',
+            post:'200052',
+            email:'kevinye@concordcn.com'
+        },
+        Columbus:{
+            name:'Columbus, OH',
+            title:"Concord Express Inc.",
+            address:'5710 Green Pointe Drive N. Suite D,Groveport, Ohio 43125',
+            tel:'+1 (614) 492 2355',
+            fax:'+1 (614) 492 2360',
+            email:['m.allen@concordusa.us','j.watson@concordusa.us']
+        }
+    },
+    ctpat:{
+        name:'C-TPAT',
+        title:"Concord Express is a long standing participant in the Customs and Trade Partnership against Terrorism (C-TPAT).",
+        sviNum:{
+            name:'SVI Number',
+            num:'57e50338-756c-4d95-bdc1-69d17c60219f'
+        },
+        title2:'C-TPAT participant enjoy a variety of benefits, including taking an active role in working closer with the U.S. Government in its war against terrorism. As they do this, Participant are able to better identify their own security vulnerabilities and take corrective actions to mitigate risks. Some of the benefits of the program include:',
+        title3:'US Importers may potentially receive benefits from participation in the program from lower Customs Exam Ratios to faster processing times when exams are called. We believe there are other benefits inherent in participation in C-TPAT beyond those provided by CBP. These include:',
+        list1:['Reduced number of CBP examinations','Front of the line inspections','Possible exemption from Stratified Exams','Shorter wait times at the border','Assignment of a Supply Chain Security Specialist to the company','Access to the Free and Secure Trade (FAST) Lanes at the land borders','Access to the CTPAT web-based Portal system and a library of training materials','Possibility of enjoying additional benefits by being recognized as a trusted trade Partner by foreign Customs administrations that have signed Mutual Recognition with the United States',
+                'Eligibility for other U.S. Government pilot programs, such as the Food and Drug Administration’s Secure Supply Chain program','Business resumption priority following a natural disaster or terrorist attack','Importer eligibility to participate in the Importer Self-Assessment Program (ISA)','Priority consideration at CBP’s industry-focused Centers of Excellence and Expertise'],
+        list2:["Increased security throughout your supply chain from offshore manufacturing facilities to your Distribution Centers or your customer's door",'Improved control in the initiatives against theft, pilferage, or other loss to your valuable assets','Greater protection against security breach which could result in your company being an unwilling participant in plotsranging from hijacking to terrorism; while at the same time destroying your public image','Achieve a more effective import program as well as enhanced security awareness within your entire company ']
+    },
+    media:{
+        title1:'Trump says U.S.-China talks are within reach of a breakthrough in trade relations',
+        text1:'President Trump said this week’s talks in Beijing had brought the United States and China within reach of a breakthrough in their trade relations, despite his administration’s own assessment that “much work remains” before a deal can be struck...',
+        title2:'Ports of Los Angeles and Long Beach post strong volumes to start 2019',
+        text2:'While uncertainty regarding the direction of the United States and China trade talks lingers, January volumes recently issued by the Port of Los Angeles (POLA) and the Port of Long Beach (POLB) were both very strong.Total POLA January volumes, at 852,440 TEU (Twenty-Foot Equivalent Units) marked a 5.4% annual gain and represent the busiest January output for the port in its 112 years of operation, while also marking the seventh consecutive month of POLA monthly volumes topping the 800,000 ...'
+    },
+    news:[
+        {
+            title:'Trump says U.S.-China talks are within reach of a breakthrough in trade relations',
+            list:['President Trump said this week’s talks in Beijing had brought the United States and China within reach of a breakthrough in their trade relations, despite his administration’s own assessment that “much work remains” before a deal can be struck.','The president again vowed that any agreement will address the full range of U.S. complaints about China’s behavior, including deep-seated structural features of its economic model.','“We’re a lot closer than we ever were in this country with having a real trade deal,” the president said Friday during a Rose Garden news conference about his national emergency declaration. ','“We’re covering everything, all of the points that people have been talking about for years and said couldn’t be done.”','Trump spoke several hours after Treasury Secretary Steven Mnuchin tweeted that the two days of talks had been “Productive.” But the administration offered no evidence that the two sides had significantly narrowed their differences.','“Everyone thinks it’s a stalemate,” said one analyst, who has talked with U.S. negotiators and spoke on the condition of anonymity to discuss confidential matters. “The president is wishing something there that isn’t and is trying to will it to be.”','Negotiations are set to continue next week in Washington and are aimed at reaching a memorandum of understanding before Trump’s self-imposed March 1 deadline.','The president also raised the bar on what would constitute success, telling reporters: “It’s going to be better than any deal that anybody ever dreamed possible, or I’m not going to have a deal; it’s very simple.”','Fresh off a border security compromise that angered some prominent conservatives, Trump seemed sensitive to criticism of his dealmaking. He complained that Democratic leaders would assail whatever deal he reaches with Beijing and said he is considering inviting House Speaker Nancy Pelosi (D-Calif.) and Senate Minority Leader Charles E. Schumer (D-N.Y.) to join the talks.','“Any deal I make, toward the end I’m going to bring Schumer — at least offer him — and Pelosi. I’m going to say, “Please join me on the deal,’ ” the president said.','Mnuchin and U.S. Trade Representative Robert E. Lighthizer, the chief U.S. negotiator, met with Chinese President Xi Jinping before heading to the airport Friday.',
+                    '“I have said many times that China and the United States are inseparable from each other. Cooperation serves the interests of the two sides and conflict can only hurt both,” Xi said, according to state broadcaster CCTV. “The consultations between the two teams have made important progress.”','In Washington, analysts say the talks are likely to continue for 60 days past the March 1 deadline. If no deal is reached, the current 10 percent tariff will rise to 25 percent on $200 billion worth of Chinese goods.','The president said he might extend the deadline if progress were made. Trump also has said that a final settlement won’t be possible until he meets with Xi, which some analysts said made it less likely that Chinese negotiators would make concessions before then.','“You have to wonder: Is all of the positive talk just a way to manage expectations and the stock market, when everyone knows this won’t be resolved until Trump and Xi meet?” said Jeff Moon, a U.S. trade negotiator in the Obama administration.','The White House said the U.S. negotiators emphasized “structural issues, including forced technology transfer, intellectual property rights, cyber theft, agriculture, services, non-tariff barriers, and currency.”','Chinese officials this week renewed a proposal to massively increase purchases of American semiconductors. But the plan is opposed by U.S. companies because it would involve relocating assembly plants to China from Malaysia and Mexico.','Under the offer, U.S. companies would ship their chips directly to China from the United States — so that they would count as U.S. exports — rather than sending them first to third-country plants.','“We are concerned China’s reported offer to dramatically increase purchases of U.S. semiconductors would rearrange U.S. supply chains and artificially force them deeper into China,” said John Neuffer, president of the Semiconductor Industry Association. “Perhaps our greatest concern is this can act as a distraction from addressing the fundamental issues at the heart of the dispute: China’s problematic trade practices related to intellectual property, forced tech transfer, and state subsidies.”','Trump wants to narrow the U.S. trade deficit with China, which is expected to have exceedsd a record $400 billion in 2018. Beijing has already pledged to buy more American products, such as soybeans and liquefied natural gas.',
+                    'Some analysts say that Trump, facing political troubles at home, might settle for narrowing the trade deficit through Chinese purchases of American goods rather than insisting on fundamental changes in China’s economy.','“President Trump is much more interested in somewhat symbolic wins, in particular China’s commitment to purchase a given amount of U.S. goods, than he is in the more abstract structural issues,” said Michael Hirson, Eurasia Group’s director for China.']
+        },
+        {
+            title:'Ports of Los Angeles and Long Beach post strong volumes to start 2019',
+            list:['While uncertainty regarding the direction of the United States and China trade talks lingers, January volumes recently issued by the Port of Los Angeles (POLA) and the Port of Long Beach (POLB) were both very strong.','Total POLA January volumes, at 852,440 TEU (Twenty-Foot Equivalent Units) marked a 5.4% annual gain and represent the busiest January output for the port in its 112 years of operation, while also marking the seventh consecutive month of POLA monthly volumes topping the 800,000 TEU mark.','POLA imports, at 429,923 TEU, were up 1.7%, and exports fell 3.4% to 144,993 TEU. Empty containers, at 277,354, were up 17.7%.','"These robust volumes reflect the pre-Lunar New Year surge of cargo, continued tariff-related inventory advances and strong consumer demand,” said POLA Executive Director Gene Seroka in a statement. “With warehouses and distribution centers already full with spring goods and supplies, we will see softer volumes immediately after the Lunar New Year as anticipated.”','POLB January volume, at 657,286 TEU, was off 0.1% annually compared to January 2018, which is the port’s highest all-time level for January.','Imports were off 0.3% to 323,838 TEU, and exports dipped 2.7% to 117,288 TEU. Empty containers headed up 1.6% to 216,160 TEU.','“It’s encouraging to see these healthy volumes to start the year,” said Port of Long Beach Executive Director Mario Cordero in a statement. “As long as the economy is performing well, we expect our container trade to mirror it. Regardless, the Port will continue to focus on delivering operational excellence, working with ocean carriers, terminals, truckers, labor, cargo owners and all of our many stakeholders.”','Research from global trade intelligence firm Panjiva noted that combined POLA and POLB volumes were up 0.8% annually, noting that this low cumulative gain may reflect the impact of ongoing congestion at the ports, due, in part, to a shortage of warehousing capacity, which may "be taking a toll on the ports potential to deliver exports.',"Looking ahead, Panjiva said that the outlook for POLA and POLB will largely depend on the progress of the U.S.-China trade talks, with the firm's data showing that China, including Hong Kong accounted for 62.8% of inbound volumes to POLA and POLB, falling 9% in January."]
+        }
+    ]
 }
