@@ -19,7 +19,7 @@
           </swiper>
           <h1 class="ab">{{$t('index.part_1.title')}}</h1>
           <div class="btn-box ab flex">
-            <div class="btn">{{$t('index.part_1.btn1')}}</div>
+            <div class="btn" @click="$router.push('quote')">{{$t('index.part_1.btn1')}}</div>
             <div class="btn">{{$t('index.part_1.btn2')}}</div>
           </div>
         </div>
@@ -314,6 +314,7 @@ export default {
       width: 100%;
       height: 100%;
       background-position: center;
+      background-size: 100% 100%;
       .section {
         width: 100%;
         height: 100%;
@@ -324,7 +325,9 @@ export default {
         h1 {
           left: 50%;
           transform: translateX(-50%);
-          top: 4.35rem;
+          // top: 4.35rem;
+          top: 39%;
+          // top: 0;
           z-index: 1;
           font-family: "bauhs93";
           color: white;
@@ -340,7 +343,7 @@ export default {
           justify-content: space-between;
           left: 50%;
           transform: translateX(-50%);
-          top: 6rem;
+          top: 51%;
           .btn {
             width: 2.6rem;
             height: 0.7rem;
@@ -352,6 +355,7 @@ export default {
             font-weight: 600;
             border-radius: 0.35rem;
             cursor: pointer;
+            font-family: 'HelveticaExt';
           }
         }
       }
@@ -388,6 +392,7 @@ export default {
             font-family: "biminbold";
             text-align: right;
             position: relative;
+            line-height: 1.5;
             &::after {
               content: "";
               background: #2a6ec1;
@@ -404,6 +409,8 @@ export default {
             color: white;
             font-family: Helvetica;
             margin-top: 0.15rem;
+            font-family: 'HelveticaExt';
+            line-height: 1.5;
           }
           .box {
             margin-top: 0.64rem;
@@ -443,6 +450,8 @@ export default {
                 font-size: 0.2rem;
                 margin-top: 0.1rem;
                 text-align: center;
+                font-family: 'HelveticaExt';
+                font-weight: bold;
               }
             }
             .more {
@@ -457,6 +466,7 @@ export default {
               position: absolute;
               right: 0;
               top: 0.16rem;
+              font-family: 'HelveticaExt';
             }
           }
         }
@@ -559,6 +569,7 @@ export default {
           font-size: 0.24rem;
           text-align: center;
           font-weight: 500;
+          margin-top: 0.2rem;
         }
         .left {
           padding-top: 0.5rem;
@@ -589,6 +600,7 @@ export default {
             font-size: 0.2rem;
             line-height: 0.86rem;
             margin-left: 0.55rem;
+            font-family: 'HelveticaExt';
           }
         }
         .right {
@@ -604,9 +616,16 @@ export default {
             margin-bottom: 0.2rem;
             border-radius: 0.05rem;
             outline: none;
-            color: #b3b3b3;
+            color: #b2b2b2;
             text-indent: 0.1rem;
+            font-family: 'HelveticaExt';
             font-size: 0.2rem;
+          }
+          textarea{
+            padding-top: 0.1rem;
+          }
+          input::-webkit-input-placeholder,textarea::-webkit-input-placeholder{
+            color: #b2b2b2;
           }
           .first,
           .last {
@@ -633,6 +652,7 @@ export default {
             line-height: 0.44rem;
             margin: 0.3rem auto;
             transition: .3s;
+            font-family: 'HelveticaExt';
             cursor: pointer;
             &:hover{
               background: #2a6ec1;

@@ -93,12 +93,12 @@ export default {
     li {
       font-size: 0.24rem;
       display: inline-block;
-      font-family: "HelveticaExt-Normal";
       margin-left: 0.89rem;
       position: relative;
       a{
         color: white;
         transition: .3s;
+        font-family: "HelveticaExt-Normal";
         &:hover{
           color: #1a478b !important;
         }
@@ -114,7 +114,7 @@ export default {
         height: 0.03rem;
         display: block;
         position: absolute;
-        bottom: 0.2rem;
+        bottom: 0.1rem;
         left: 50%;
         transform: translateX(-50%);
 

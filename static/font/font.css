@@ -7,6 +7,10 @@
     src: url('./HelveticaExt-Normal.ttf')
 }
 @font-face{
+    font-family: 'HelveticaExt';
+    src: url('./HelveticaExt.ttf')
+}
+@font-face{
     font-family: 'biminbold';
     src: url('./biminbold.ttf')
 }

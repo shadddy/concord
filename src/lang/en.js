@@ -342,5 +342,20 @@ module.exports={
             title:'Ports of Los Angeles and Long Beach post strong volumes to start 2019',
             list:['While uncertainty regarding the direction of the United States and China trade talks lingers, January volumes recently issued by the Port of Los Angeles (POLA) and the Port of Long Beach (POLB) were both very strong.','Total POLA January volumes, at 852,440 TEU (Twenty-Foot Equivalent Units) marked a 5.4% annual gain and represent the busiest January output for the port in its 112 years of operation, while also marking the seventh consecutive month of POLA monthly volumes topping the 800,000 TEU mark.','POLA imports, at 429,923 TEU, were up 1.7%, and exports fell 3.4% to 144,993 TEU. Empty containers, at 277,354, were up 17.7%.','"These robust volumes reflect the pre-Lunar New Year surge of cargo, continued tariff-related inventory advances and strong consumer demand,” said POLA Executive Director Gene Seroka in a statement. “With warehouses and distribution centers already full with spring goods and supplies, we will see softer volumes immediately after the Lunar New Year as anticipated.”','POLB January volume, at 657,286 TEU, was off 0.1% annually compared to January 2018, which is the port’s highest all-time level for January.','Imports were off 0.3% to 323,838 TEU, and exports dipped 2.7% to 117,288 TEU. Empty containers headed up 1.6% to 216,160 TEU.','“It’s encouraging to see these healthy volumes to start the year,” said Port of Long Beach Executive Director Mario Cordero in a statement. “As long as the economy is performing well, we expect our container trade to mirror it. Regardless, the Port will continue to focus on delivering operational excellence, working with ocean carriers, terminals, truckers, labor, cargo owners and all of our many stakeholders.”','Research from global trade intelligence firm Panjiva noted that combined POLA and POLB volumes were up 0.8% annually, noting that this low cumulative gain may reflect the impact of ongoing congestion at the ports, due, in part, to a shortage of warehousing capacity, which may "be taking a toll on the ports potential to deliver exports.',"Looking ahead, Panjiva said that the outlook for POLA and POLB will largely depend on the progress of the U.S.-China trade talks, with the firm's data showing that China, including Hong Kong accounted for 62.8% of inbound volumes to POLA and POLB, falling 9% in January."]
         }
-    ]
+    ],
+    quote:{
+        name1:"REQUEST A QUOTE",
+        name2:"CONTACT INFORMATION",
+        text:"Your contact information will only be used to send your Quote. Please allow up to 24 hours for quote response.",
+        business:'Business choice',
+        title:'Title',
+        name:"Name",
+        company:'Company',
+        phone:'Phone',
+        email:'Email',
+        city:'City',
+        subject:'Subject',
+        message:'Message',
+        send:'GET RATE QUOTE'
+    }
 }
