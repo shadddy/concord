@@ -357,5 +357,10 @@ module.exports={
         subject:'Subject',
         message:'Message',
         send:'GET RATE QUOTE'
+    },
+    dialog:{
+        text:['Please kindly send information to','we will reply you soon. Thank you!'],
+        email:'inquiry@concordcn.com',
+        ok:'OK'
     }
 }

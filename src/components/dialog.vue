@@ -1,6 +1,10 @@
 <template>
   <div class='dialog'>
+    <div class="content">
+      <p>{{$t('dialog.text[0]')}}<span>{{$t('dialog.email')}}</span>{{$t('dialog.text[1]')}}</p>
       <div class="line"></div>
+    </div>
+
   </div>
 </template>
 
@@ -30,16 +34,23 @@ export default {
 };
 </script>
 <style lang='less' scoped>
-.dialog{
+.dialog {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  overflow: hidden;
+   z-index: 1000;
+  .content {
     width: 650px;
     height: 270px;
     background: white;
-    box-shadow:0px 20px 50px 15px rgba(0,0,0,0.15);
-    position: fixed;
-    z-index: 1000;
+    box-shadow: 0px 20px 50px 15px rgba(0, 0, 0, 0.15);
+    position: absolute;
     left: 50%;
     top: 50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
     border-radius: 10px;
     .line {
       background-image: url("../assets/img/dialog.png");
@@ -47,5 +58,6 @@ export default {
       width: 100%;
       height: 0.02rem;
     }
+  }
 }
 </style>
