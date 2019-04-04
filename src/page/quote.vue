@@ -1,7 +1,7 @@
 <template>
   <div class="quote">
     <my-head></my-head>
-    <my-dialog></my-dialog>
+    <my-dialog :isShow="dialogShow" @close="dialogShow=false"></my-dialog>
     <div class="inner-banner"></div>
     <div class="content">
       <h1>{{$t('quote.name1')}}</h1>
@@ -51,7 +51,7 @@
           ></textarea>
         </li>
       </ul>
-      <div class="btn">
+      <div class="btn" @click="submit">
         {{$t('quote.send')}}
       </div>
     </div>
@@ -70,10 +70,16 @@ export default {
     myDialog
   },
   data() {
-    return {};
+    return {
+      dialogShow:false
+    };
   },
   computed: {},
-  methods: {},
+  methods: {
+    submit(){
+      this.dialogShow=true
+    }
+  },
   created() {},
   mounted() {}
 };

@@ -91,12 +91,14 @@ export default {
           color: #4c4c4c;
           font-family: 'biminbold';
           margin-bottom: 0.3rem;
+          line-height: 1.5;
         }
         p{
           width: 100%;
           font-size: 0.2rem;
           color: #808080;
           letter-spacing: 1px;
+          line-height: 1.8;
         }
       }
     }

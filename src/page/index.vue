@@ -3,7 +3,7 @@
     <transition name="fade">
       <img :src="aniImg" alt="" class="ani" v-show="aniShow">
     </transition>
-    
+    <my-dialog :isShow="dialogShow" @close="dialogShow=false"></my-dialog>
     <swiper :options="swiperOption" ref="mySwiper">
       <!-- 第一屏 -->
       <swiper-slide >
@@ -177,12 +177,14 @@ import "swiper/dist/css/swiper.css";
 import { swiper, swiperSlide } from "vue-awesome-swiper";
 import myHead from "@/components/header";
 import myFoot from "@/components/footer";
+import myDialog from "@/components/dialog";
 export default {
   components: {
     swiper,
     swiperSlide,
     myHead,
-    myFoot
+    myFoot,
+    myDialog
   },
   data() {
     return {
@@ -191,6 +193,7 @@ export default {
       imgs:[],
       aniShow:false,
       aniImg:"../static/img/logo_012.jpg",
+      dialogShow:false,
       icon: {
         backgroundImage:
           "url(" + require("../assets/img/index/index_icon.png") + ")"
@@ -283,7 +286,7 @@ export default {
         this.$Message.warning('Message is required')
         return
       }
-      this.$Message.success('Your info has been sent')
+      this.dialogShow=true
     }
   },
   //生命周期 - 创建完成（可以访问当前this实例）

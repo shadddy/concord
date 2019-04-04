@@ -1,8 +1,9 @@
 <template>
-  <div class='dialog'>
+  <div class='dialog' v-show="isShow">
     <div class="content">
-      <p>{{$t('dialog.text[0]')}}<span>{{$t('dialog.email')}}</span>{{$t('dialog.text[1]')}}</p>
+      <p>{{$t('dialog.text[0]')}}<span class="blue"> {{$t('dialog.email')}} </span>{{$t('dialog.text[1]')}}</p>
       <div class="line"></div>
+      <span class="blue ok" @click="close">{{$t('dialog.ok')}}</span>
     </div>
 
   </div>
@@ -11,15 +12,27 @@
 <script>
 export default {
   components: {},
+  props:{
+    isShow:{
+      type:Boolean,
+      default:false
+    }
+  },
   data() {
-    return {};
+    return {
+      
+    };
   },
   //监听属性 类似于data概念
   computed: {},
   //监控data中的数据变化
   watch: {},
   //方法集合
-  methods: {},
+  methods: {
+    close(){
+      this.$emit('close',false)
+    }
+  },
   //生命周期 - 创建完成（可以访问当前this实例）
   created() {},
   //生命周期 - 挂载完成（可以访问DOM元素）
@@ -52,12 +65,35 @@ export default {
     top: 50%;
     transform: translate(-50%, -50%);
     border-radius: 10px;
+    padding: 42px 40px;
     .line {
       background-image: url("../assets/img/dialog.png");
       background-size: 100% 100%;
       width: 100%;
       height: 0.02rem;
+      margin-top: 40px;
     }
+    p{
+      font-family: 'HelveticaExt';
+      font-size: 20px;
+      color: #333333;
+      word-break: break-all;
+      line-height: 40px;
+      span{
+        display: inline;
+      }
+
+    }
+    .ok{
+      font-size: 20px;
+      display: block;
+      margin: 40px auto 0 auto;
+      text-align: center;
+      cursor: pointer;
+    }
+  }
+  .blue{
+    color: #3f6fb7;
   }
 }
 </style>

@@ -55,6 +55,7 @@ export default {
       margin: 0.6rem auto;
       font-family: "biminbold";
       color: #4c4c4c;
+      line-height: 1.2;
       position: relative;
       &::after {
         content: "";
@@ -72,7 +73,7 @@ export default {
       font-size: 0.2rem;
       color: #808080;
       margin-bottom: 0.2rem;
-      line-height: 0.36rem;
+      line-height: 1.8;
       letter-spacing: 1px;
     }
   }

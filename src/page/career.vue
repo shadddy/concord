@@ -1,6 +1,7 @@
 <template>
   <div class="career">
     <my-head></my-head>
+     <my-dialog :isShow="dialogShow" @close="dialogShow=false"></my-dialog>
     <div class="inner-banner"></div>
     <div class="content">
       <h1>{{$t('career.title')}}</h1>
@@ -37,16 +38,19 @@
 <script>
 import myHead from "@/components/header";
 import myFoot from "@/components/footer";
+import myDialog from "@/components/dialog"
 export default {
   components: {
     myHead,
-    myFoot
+    myFoot,
+    myDialog
   },
   data() {
     return {
       name:'',
       email:'',
-      message:''
+      message:'',
+       dialogShow:false
     };
   },
   computed: {},
@@ -62,7 +66,7 @@ export default {
         this.$Message.warning('Message is required')
         return
       }
-      this.$Message.success("Your info has been sent")
+      this.dialogShow=true
     }
   },
   created() {},
@@ -155,6 +159,7 @@ export default {
         border: 1px solid #cacaca;
         text-indent: 0.2rem;
         font-size: 0.2rem;
+        padding-top: 0.1rem;
       }
       .blue{
         color:#2a6ec1;
