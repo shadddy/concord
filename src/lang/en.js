@@ -171,7 +171,8 @@ module.exports={
             pos:'background-position:-2.28rem -7.33rem;',
             act:'background-position:-2.28rem -5rem;',
             title:'INCOTERMS® 2010 RULES',
-            subTitle:'Chart of Responsibility'
+            subTitle:'Chart of Responsibility',
+            row_1:["Any TransportMode","Sea/Inland Waterway Transport","Any Transport Mode"]
         },
         nav3:{
             id:3,

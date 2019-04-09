@@ -15,8 +15,8 @@
         </li>
       </ul>
       <div class="line"></div>
-      <!-- <transition name="fade"> -->
-      <div class="text" v-show="curNav==1">
+      <!-- Calculator 2010 -->
+      <div class="text text-1" v-show="curNav==1">
         <h1>{{$t('tool.nav1.name')}}</h1>
         <p style="color:#000">{{$t('tool.nav1.title')}}</p>
         <p class="icon">{{$t('tool.nav1.title1')}}</p>
@@ -71,25 +71,33 @@
           </ul>
         </div>
       </div>
-      <!-- </transition> -->
-      <!-- <transition name="fade"> -->
-      <div class="text" v-show="curNav==2">
+      <!-- Incoterms 2010 -->
+      <div class="text text-2" v-show="curNav==2">
         <h1>{{$t('tool.nav2.name')}}</h1>
+        <div class="table">
+          <div class="title">
+            <h2>{{$t('tool.nav2.title')}}</h2>
+            <h3>{{$t('tool.nav2.subTitle')}}</h3>
+          </div>
+          <ul class="row_1">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+          </ul>
+        </div>
       </div>
-      <!-- </transition> -->
-      <!-- <transition name="fade"> -->
       <div class="text text-3" v-show="curNav==3">
         <h1>{{$t('tool.nav3.name')}}</h1>
         <p>
           {{$t('tool.nav3.btn1')}}
-          <span class="blue">  ({{$t('tool.nav3.download')}})</span>
+          <span class="blue">({{$t('tool.nav3.download')}})</span>
         </p>
         <p>
           {{$t('tool.nav3.btn2')}}
-          <span class="blue">  ({{$t('tool.nav3.download')}})</span>
+          <span class="blue">({{$t('tool.nav3.download')}})</span>
         </p>
       </div>
-      <!-- </transition> -->
     </div>
     <my-foot></my-foot>
   </div>
@@ -105,7 +113,7 @@ export default {
   },
   data() {
     return {
-      curNav: 1
+      curNav: 2
     };
   },
   computed: {},
@@ -217,31 +225,33 @@ export default {
           left: 0;
         }
       }
-      .table {
-        margin-top: 0.8rem;
-        width: 10.6rem;
-        display: flex;
-        display: -webkit-flex;
-        ul {
-          width: 3.53rem;
-          position: relative;
-          display: block;
-          border: 2px solid #e2e4e8;
-          li {
-            text-align: center;
-            width: 100%;
+      &.text-1 {
+        .table {
+          margin-top: 0.8rem;
+          width: 10.6rem;
+          display: flex;
+          display: -webkit-flex;
+          ul {
+            width: 3.53rem;
+            position: relative;
             display: block;
-            height: 0.6rem;
-            line-height: 0.6rem;
-            font-size: 0.2rem;
-            color: #4c4c4c;
-            &.title {
-              background: #b0cdf1 !important;
-              color: #000;
-              font-weight: bold;
-            }
-            &:nth-child(odd) {
-              background: #e0ebfa;
+            border: 2px solid #e2e4e8;
+            li {
+              text-align: center;
+              width: 100%;
+              display: block;
+              height: 0.6rem;
+              line-height: 0.6rem;
+              font-size: 0.2rem;
+              color: #4c4c4c;
+              &.title {
+                background: #b0cdf1 !important;
+                color: #000;
+                font-weight: bold;
+              }
+              &:nth-child(odd) {
+                background: #e0ebfa;
+              }
             }
           }
         }
@@ -294,6 +304,77 @@ export default {
           }
         }
       }
+      &.text-2 {
+        table {
+          width: 10.6rem;
+          margin: 0 auto;
+          border: 2px solid #e2e4e8;
+          border-radius: 0.08rem;
+          text-align: center;
+          border-spacing: 0;
+          thead {
+            border-color: #fff;
+            background: #b0cdf1;
+            th {
+              width: 10.6rem;
+              padding: 0.3rem 0 0.3rem 0;
+              border-radius: 0.08rem 0.08rem 0 0;
+              h2 {
+                color: #1a1a1a;
+                font-size: 0.36rem;
+                font-family: "biminbold";
+                margin-bottom: 0.1rem;
+              }
+              h3 {
+                color: #fff;
+                font-size: 0.22rem;
+                font-family: "biminbold";
+              }
+            }
+          }
+          tr {
+            border-color: #fff;
+          }
+          td {
+            background: #b0cdf1;
+            height: 0.74rem;
+            width: 0.82rem;
+            border-color: #fff;
+          }
+        }
+        .table {
+          width: 10.6rem;
+          margin: 0 auto;
+          position: relative;
+          border: 2px solid #e2e4e8;
+          border-radius: 0.08rem;
+          text-align: center;
+          display: flex;
+          display: -webkit-flex;
+          flex-wrap: wrap;
+          .title {
+            background: #b0cdf1;
+            width: 10.6rem;
+            padding: 0.3rem 0 0.3rem 0;
+            border-radius: 0.08rem 0.08rem 0 0;
+            h2 {
+              color: #1a1a1a;
+              font-size: 0.36rem;
+              font-family: "biminbold";
+              margin-bottom: 0.1rem;
+            }
+            h3 {
+              color: #fff;
+              font-size: 0.22rem;
+              font-family: "biminbold";
+            }
+          }
+          .row_1 {
+            height: 0.75rem;
+            width: 100%;
+          }
+        }
+      }
       &.text-3 {
         p {
           padding-left: 0.32rem;
@@ -310,8 +391,8 @@ export default {
             left: 0;
           }
         }
-        .blue{
-          color:#2a6ec1;
+        .blue {
+          color: #2a6ec1;
           cursor: pointer;
         }
       }
