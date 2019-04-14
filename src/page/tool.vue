@@ -81,9 +81,39 @@
           </div>
           <ul class="row_1">
             <li></li>
+            <li><span>{{$t('tool.nav2.row_1[0]')}}</span></li>
+            <li><span>{{$t('tool.nav2.row_1[1]')}}</span></li>
+            <li><span>{{$t('tool.nav2.row_1[2]')}}</span></li>
+          </ul>
+          <ul class="row_2">
             <li></li>
-            <li></li>
-            <li></li>
+            <li v-for="(item,index) in $t('tool.nav2.row_2')" :key="index" class="font14">
+              <span>{{item}}</span>
+            </li>
+          </ul>
+          <ul class="row_3">
+            <li v-for="(item,index) in $t('tool.nav2.row_3')" :key="index" class="font14">
+              <span>{{item}}</span>
+            </li>
+          </ul>
+          <ul v-for="(item,index) in List" :key="index">
+            <li v-for="(i,ind) in item" :key="ind" class="font14" :class="{style1:i==0||i==3,style2:i==1,style3:i==2}">
+              <span v-show="i==4">
+                {{$t('tool.nav2.titles['+index+']')}}
+              </span>
+              <span v-show="i==0">
+                {{$t('tool.nav2.Seller')}}
+              </span>
+              <span v-show="i==1">
+                {{$t('tool.nav2.Buyer')}}
+              </span>
+              <span v-show="i==2">
+                
+              </span>
+              <span v-show="i==3">
+                {{$t('tool.nav2.Buyorsell')}}
+              </span>
+            </li>
           </ul>
         </div>
       </div>
@@ -113,10 +143,27 @@ export default {
   },
   data() {
     return {
-      curNav: 2
+      curNav: 1,
+      List:[
+        [4,3,0,0,0,0,0,0,0,0,0,0],
+        [4,1,0,0,0,0,0,0,0,0,0,0],
+        [4,1,0,0,0,0,0,0,0,0,0,0],
+        [4,1,0,0,0,0,0,0,0,0,0,0],
+        [4,1,1,0,0,0,0,0,0,0,0,0],
+        [4,1,1,1,0,0,0,0,0,0,0,0],
+        [4,1,1,1,1,0,0,0,0,0,0,0],
+        [4,2,2,2,2,2,0,2,0,2,2,2],
+        [4,1,1,1,1,1,1,0,0,0,0,0],
+        [4,1,1,1,1,1,1,1,1,1,0,0],
+        [4,1,1,1,1,1,1,1,1,1,1,0],
+      ]
     };
   },
-  computed: {},
+  computed: {
+    List(){
+
+    }
+  },
   methods: {
     change(num) {
       this.curNav = num;
@@ -142,6 +189,7 @@ export default {
     margin: 0 auto;
     padding-top: 0.6rem;
     position: relative;
+    // padding-bottom: 2rem;
     ul {
       display: flex;
       display: -webkit-flex;
@@ -192,6 +240,7 @@ export default {
         text-align: center;
         position: relative;
         margin-bottom: 0.6rem;
+        line-height: 2;
         &::after {
           content: "";
           background: #2a6ec1;
@@ -208,6 +257,7 @@ export default {
         font-size: 0.2rem;
         margin-bottom: 0.3rem;
         letter-spacing: 1px;
+        line-height: 2;
       }
       .icon {
         position: relative;
@@ -305,56 +355,19 @@ export default {
         }
       }
       &.text-2 {
-        table {
-          width: 10.6rem;
-          margin: 0 auto;
-          border: 2px solid #e2e4e8;
-          border-radius: 0.08rem;
-          text-align: center;
-          border-spacing: 0;
-          thead {
-            border-color: #fff;
-            background: #b0cdf1;
-            th {
-              width: 10.6rem;
-              padding: 0.3rem 0 0.3rem 0;
-              border-radius: 0.08rem 0.08rem 0 0;
-              h2 {
-                color: #1a1a1a;
-                font-size: 0.36rem;
-                font-family: "biminbold";
-                margin-bottom: 0.1rem;
-              }
-              h3 {
-                color: #fff;
-                font-size: 0.22rem;
-                font-family: "biminbold";
-              }
-            }
-          }
-          tr {
-            border-color: #fff;
-          }
-          td {
-            background: #b0cdf1;
-            height: 0.74rem;
-            width: 0.82rem;
-            border-color: #fff;
-          }
-        }
         .table {
           width: 10.6rem;
-          margin: 0 auto;
+          margin: 0 auto 2rem 0;
           position: relative;
           border: 2px solid #e2e4e8;
           border-radius: 0.08rem;
           text-align: center;
-          display: flex;
-          display: -webkit-flex;
-          flex-wrap: wrap;
+          // display: flex;
+          // display: -webkit-flex;
+          // flex-wrap: wrap;
           .title {
             background: #b0cdf1;
-            width: 10.6rem;
+            width: 100%;
             padding: 0.3rem 0 0.3rem 0;
             border-radius: 0.08rem 0.08rem 0 0;
             h2 {
@@ -369,10 +382,93 @@ export default {
               font-family: "biminbold";
             }
           }
-          .row_1 {
-            height: 0.75rem;
-            width: 100%;
+          li {
+            display: inline-block;
+            border-right: 2px solid white;
+            background: #b0cdf1;
+            width: 0.83rem;
+            text-align: center;
+            padding: 0px 0.05rem;
+            line-height: 1.5;
+            span{
+              align-items:center;
+              display: flex;
+              width: 100%;
+              height: 100%;
+              font-size: 0.18rem;
+              text-align: center;
+              justify-content:center; 
+            }
           }
+          ul {
+            border-top: 2px solid white;
+            height: 0.8rem;
+            li:nth-of-type(1) {
+              width: 1.45rem;
+              font-weight: bold;
+            }
+            li:last-of-type{
+              border-right: none;
+            }
+          }
+          .font14{
+            span{
+              font-size: 0.14rem;
+            }
+          }
+          .row_1 {
+            width: 100%;
+            li{
+              color: #4c4c4c;
+              font-family:Helvetica;
+            }
+            li {
+              &:nth-of-type(1) {
+              width: 1.44rem;
+              
+            }
+              &:nth-of-type(2) {
+                width: 1.66rem;
+                background: #99bfed;
+              }
+              &:nth-of-type(3) {
+                width: 3.31rem;
+                background: #99bfed;
+              }
+              &:nth-of-type(4) {
+                width: 4.14rem;
+                background: #99bfed;
+              }
+            }
+          }
+          .row_2{
+            li:not(:first-child){
+              background: #bbd4f2;
+            }
+            li{
+              color: #4c4c4c;
+              font-family:Helvetica;
+              font-weight: bold;
+            }
+          }
+          .row_3{
+            li:not(:first-child){
+              background: #d4e4f7;
+            }
+          }
+          .style1{
+            background: #80b0e8;
+            span{
+              color: white;
+            }
+          }
+          .style2{
+            background: #e3eefc;
+          }
+          .style3{
+            background: #eeeff1;
+          }
+          
         }
       }
       &.text-3 {

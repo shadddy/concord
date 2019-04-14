@@ -194,6 +194,7 @@ export default {
         font-size: 0.2rem;
         letter-spacing: 1px;
         margin-bottom: 0.6rem;
+        line-height: 2;
       }
       ul{
         width: 100%;
@@ -209,6 +210,7 @@ export default {
             margin-bottom: 0.1rem;
             padding-left: 0.5rem;
             position: relative;
+            line-height: 1.8;
             &::before{
                content: "";
                background: #2a6ec1;

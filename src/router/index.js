@@ -12,6 +12,7 @@ import privacy from '@/page/privacy'
 import faq from '@/page/faq'
 import newsDetail from '@/page/newsDetail'
 import quote from '@/page/quote'
+import track from '@/page/track'
 
 import VueRouter from 'vue-router';
 
@@ -129,6 +130,15 @@ const routes=[
     meta:{
       isIndex:false,
       title:'quote'
+    }
+  },
+  {
+    path:'/track',
+    name:'track',
+    component:track,
+    meta:{
+      isIndex:false,
+      title:'track'
     }
   }
 ]

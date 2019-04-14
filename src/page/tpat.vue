@@ -89,6 +89,7 @@ export default {
     p{
       font-size: 0.2rem;
       color: #4c4c4c;
+      line-height: 2;
     }
     .title{
       text-align: center;
@@ -108,6 +109,8 @@ export default {
       position: relative;
       padding-left: 0.32rem;
       margin-bottom: 0.3rem;
+      line-height: 1.5;
+      font-weight: bold;
       &::before{
             content: "";
             background: #2a6ec1;

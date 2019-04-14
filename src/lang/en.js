@@ -172,7 +172,13 @@ module.exports={
             act:'background-position:-2.28rem -5rem;',
             title:'INCOTERMS® 2010 RULES',
             subTitle:'Chart of Responsibility',
-            row_1:["Any TransportMode","Sea/Inland Waterway Transport","Any Transport Mode"]
+            titles:['Packaging','Loading Charges','Delivery to Port/Place','Export Duty & Taxes','Origin Terminal Charges','Loading on Carriage','Carriage Charges','Insurance','Destination Terminal Charges','Delivery to Destination','Import Duty & Taxes'],
+            row_1:["Any Transport Mode","Sea/Inland Waterway Transport","Any Transport Mode"],
+            row_2:['EXW','FCA','FAS','FOB','CFR','CIF','CP1','CIP','DAT','DAP','DDP'],
+            row_3:['ChargesFees','EX Works','Free Carrier','Free Alongside Ship','Free On Board','Cost & Rreight','Cost Insurance & Freight','Carrage Paid To','Carrage Insurance Paid To','Delivered at Terminal','Delivered at Place','Delivered Duty paid'],
+            Seller:'Seller',
+            Buyorsell:'Buyer or Seller',
+            Buyer:'Buyer'
         },
         nav3:{
             id:3,
@@ -360,6 +366,11 @@ module.exports={
         subject:'Subject',
         message:'Message',
         send:'GET RATE QUOTE'
+    },
+    track:{
+        placeholder:'Please enter the query content',
+        title1:'Airlines',
+        title2:'Ocean FREIGHT'
     },
     dialog:{
         text:['Please kindly send information to','we will reply you soon. Thank you!'],

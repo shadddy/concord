@@ -240,6 +240,8 @@ export default {
        color: black;
        font-size: 0.2rem;
        line-height: 0.4rem; 
+       letter-spacing: 0.01rem;
+      //  font-family: 'HelveticaExt';
       }
       .title{
         font-size: 0.24rem;
