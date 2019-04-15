@@ -40,7 +40,7 @@ const routes=[
   },
   { 
     path:'/service',
-    name:'services',
+    name:'service',
     component:service,
     meta:{
       isIndex:false,

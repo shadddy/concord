@@ -308,7 +308,7 @@ export default {
       }
       .table2 {
         margin-top: 0.4rem;
-        margin-bottom: 3rem;
+        margin-bottom: 2rem;
         width: 10.6rem;
         display: flex;
         display: -webkit-flex;
@@ -472,6 +472,7 @@ export default {
         }
       }
       &.text-3 {
+          margin: 0.4rem auto 2rem auto;
         p {
           padding-left: 0.32rem;
           position: relative;

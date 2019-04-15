@@ -52,7 +52,7 @@
                   <div class="pic icon2" :style="icon"></div>
                   <p>{{$t('index.part_2.icon2')}}</p>
                 </div>
-                <div class="more">{{$t('index.part_2.more')}}</div>
+                <div class="more" @click="toService(1)">{{$t('index.part_2.more')}}</div>
               </div>
             </div>
           </div>
@@ -74,7 +74,7 @@
                   <div class="pic icon4" :style="icon"></div>
                   <p>{{$t('index.part_3.icon2')}}</p>
                 </div>
-                <div class="more">{{$t('index.part_3.more')}}</div>
+                <div class="more" @click="toService(2)">{{$t('index.part_3.more')}}</div>
               </div>
             </div>
           </div>
@@ -96,7 +96,7 @@
                   <div class="pic icon6" :style="icon"></div>
                   <p>{{$t('index.part_4.icon2')}}</p>
                 </div>
-                <div class="more">{{$t('index.part_4.more')}}</div>
+                <div class="more" @click="toService(3)">{{$t('index.part_4.more')}}</div>
               </div>
             </div>
           </div>
@@ -118,7 +118,7 @@
                   <div class="pic icon8" :style="icon"></div>
                   <p>{{$t('index.part_5.icon2')}}</p>
                 </div>
-                <div class="more">{{$t('index.part_5.more')}}</div>
+                <div class="more" @click="toService(4)">{{$t('index.part_5.more')}}</div>
               </div>
             </div>
           </div>
@@ -140,7 +140,7 @@
                   <div class="pic icon10" :style="icon"></div>
                   <p>{{$t('index.part_6.icon2')}}</p>
                 </div>
-                <div class="more">{{$t('index.part_6.more')}}</div>
+                <div class="more" @click="toService(5)">{{$t('index.part_6.more')}}</div>
               </div>
             </div>
           </div>
@@ -306,6 +306,9 @@ export default {
       }
       this.dialogShow=true
     },
+    toService(num){
+      this.$router.push({name:'service',params:{serviceId:num}});
+    }
   },
   //生命周期 - 创建完成（可以访问当前this实例）
   created() {},
@@ -349,6 +352,7 @@ export default {
         height: 100%;
         position: relative;
         overflow: hidden;
+        
       }
       .part-1 {
         h1 {
@@ -495,6 +499,11 @@ export default {
               right: 0;
               top: 0.16rem;
               font-family: 'HelveticaExt';
+              cursor: pointer;
+              transition: .3s;
+              &:hover{
+                background: #2a6ec1;
+              }
             }
           }
         }

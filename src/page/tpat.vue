@@ -54,6 +54,7 @@ export default {
     margin: 0 auto;
     padding-bottom: 2rem;
     h1 {
+      margin-top: 0.4rem;
       color: #333;
       font-family: "biminbold";
       font-size: 0.42rem;

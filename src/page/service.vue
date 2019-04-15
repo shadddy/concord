@@ -110,7 +110,13 @@ export default {
   },
   created() {},
   mounted() {
+    this.curNav=this.$route.params.serviceId
+    if(this.curNav==undefined){
+      this.curNav=1
+    }
+    // let _curNav=this.$route.params.serviceId
     this.curList = this.list[this.curNav - 1];
+    console.log(this.curList)
   }
 };
 </script>
