@@ -496,4 +496,27 @@ export default {
     }
   }
 }
+@media (min-device-width: 375px) and (max-device-width: 812px){
+  .tool{
+    .content{
+      min-height: 16rem;
+      ul{
+        li{
+          p{
+            font-size: 0.4rem;
+          }
+          
+        }
+      }
+      .text{
+        h1{
+            font-size: 0.8rem;
+        }
+        p{
+          font-size: 0.4rem;
+        }
+      }
+    }
+  }
+}
 </style>

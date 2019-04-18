@@ -175,4 +175,51 @@ export default {
     }
   }
 }
+@media (min-device-width: 375px) and (max-device-width: 812px) {
+  .header {
+    height: 3.5rem;
+    .logo {
+      transform: scale(2);
+      margin: 1.25rem 0 0 1.33rem;
+    }
+    ul {
+      margin-left: 1.8rem;
+
+      li {
+        font-size: 14px;
+        line-height: 30px;
+        margin-left: 0;
+        margin-right: 0.5rem;
+        &.act:after {
+          content: url("../assets/img/act.png");
+          width: 0.27rem;
+          height: 0.03rem;
+          display: block;
+          position: absolute;
+          bottom: 20px;
+          left: 25%;
+          transform: translateX(-50%);
+        }
+      }
+    }
+    .lang {
+      margin: 1.5rem 0 0 0rem;
+      span {
+        font-size: 12px;
+        &:nth-of-type(2) {
+          &::before {
+            content: "";
+            background: white;
+            width: 2px;
+            height: 10px;
+            display: block;
+            position: absolute;
+            left: -0.16rem;
+            top: 0.01rem;
+          }
+        }
+      }
+    }
+  }
+}
 </style>

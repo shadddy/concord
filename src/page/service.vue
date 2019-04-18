@@ -233,4 +233,41 @@ export default {
     }
   }
 }
+@media (min-device-width: 375px) and (max-device-width: 812px){
+  .service{
+    .content{
+      width: 16rem;
+      min-height: 17rem;
+      ul{
+        li{
+          p{
+            font-size: 0.4rem;
+          }
+        }
+      }
+      .text{
+        h1{
+          font-size: 0.8rem;
+          &::after{
+            width: 4rem;
+          }
+        }
+        p{
+          font-size: 0.4rem;
+        }
+        ul{
+          padding: 0 0.2rem;
+          li{
+            font-size: 0.4rem;
+            &::before{
+              width: 0.2rem;
+              height: 0.2rem;
+              top: 0.3rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}
 </style>

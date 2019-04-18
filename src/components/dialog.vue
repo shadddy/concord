@@ -96,4 +96,22 @@ export default {
     color: #3f6fb7;
   }
 }
+@media (min-device-width: 375px) and (max-device-width: 812px){
+  .dialog{
+    .content{
+      width: 320px;
+      height: 200px;
+      .line{
+        margin-top: 20px;
+      }
+      p{
+        font-size: 12px;
+        line-height: 20px;
+      }
+      .ok{
+        font-size: 14px;
+      }
+    }
+  }
+}
 </style>

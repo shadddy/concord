@@ -11,35 +11,35 @@
       <ul>
         <li class="business">
           <p>{{$t('quote.business')}}</p>
-          <input type="text">
+          <input type="text" @focus="submit">
         </li>
         <li class="title">
           <p>{{$t('quote.title')}}</p>
-          <input type="text">
+          <input type="text" @focus="submit">
         </li>
         <li>
           <p>{{$t('quote.name')}}<span class="blue">(*)</span></p>
-          <input type="text">
+          <input type="text" @focus="submit">
         </li>
         <li>
           <p>{{$t('quote.company')}}<span class="blue">(*)</span></p>
-          <input type="text">
+          <input type="text" @focus="submit">
         </li>
         <li>
           <p>{{$t('quote.phone')}}<span class="blue">(*)</span></p>
-          <input type="text">
+          <input type="text" @focus="submit">
         </li>
         <li>
           <p>{{$t('quote.email')}}<span class="blue">(*)</span></p>
-          <input type="text">
+          <input type="text" @focus="submit">
         </li>
         <li>
           <p>{{$t('quote.city')}}<span class="blue">(*)</span></p>
-          <input type="text">
+          <input type="text" @focus="submit">
         </li>
         <li>
           <p>{{$t('quote.subject')}}<span class="blue">(*)</span></p>
-          <input type="text">
+          <input type="text" @focus="submit">
         </li>
         <li class="message">
           <p>{{$t('quote.message')}}</p>
@@ -48,6 +48,7 @@
             id=""
             cols="30"
             rows="10"
+            @focus="submit"
           ></textarea>
         </li>
       </ul>
@@ -198,6 +199,36 @@ export default {
           font-size: 0.24rem;
         }
       }
+  }
+}
+@media (min-device-width: 375px) and (max-device-width: 812px){
+  .quote{
+    .content{
+      h1{
+        font-size: 0.8rem;
+        &::after{
+          width: 4rem;
+        }
+      }
+      h3{
+        font-size: 0.5rem;
+      }
+      p{
+        font-size: 0.4rem;
+      }
+      ul{
+        li{
+          input{
+            height: 0.8rem;
+          }
+        }
+      }
+      .btn{
+        height: 1rem;
+        font-size: 0.4rem;
+        line-height: 1rem;
+      }
+    }
   }
 }
 </style>

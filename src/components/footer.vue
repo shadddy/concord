@@ -75,4 +75,22 @@ export default {
         }
     }
 }
+@media (min-device-width: 375px) and (max-device-width: 812px){
+    .footer{
+        height: 2.6rem;
+
+        .content{
+            ul{
+                width: 14rem;
+                li{
+                    font-size: 0.4rem;
+                    width: 3.2rem;
+                }
+            }
+            p{
+                font-size: 0.32rem;
+            }
+        }
+    }
+}
 </style>

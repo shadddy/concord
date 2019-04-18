@@ -435,4 +435,27 @@ export default {
     
   }
 }
+@media (min-device-width: 375px) and (max-device-width: 812px){
+  .location{
+    .content{
+      width: 12rem;
+      h1{
+        font-size: 0.8rem;
+      }
+      .part{
+        
+        p{
+          font-size: 0.4rem;
+          line-height: 0.8rem;
+        }
+        .title{
+          font-size: 0.4rem;
+        }
+      }
+      h3{
+          font-size: 0.4rem;
+      }
+    }
+  }
+}
 </style>

@@ -1,12 +1,12 @@
 <template>
   <div class="index">
     <transition name="fade">
-      <img :src="aniImg" alt="" class="ani" v-show="aniShow">
+      <img :src="aniImg" alt class="ani" v-show="aniShow">
     </transition>
     <my-dialog :isShow="dialogShow" @close="dialogShow=false"></my-dialog>
     <swiper :options="swiperOption" ref="mySwiper">
       <!-- 第一屏 -->
-      <swiper-slide >
+      <swiper-slide>
         <!-- 头部导航 -->
         <my-head></my-head>
         <div class="section part-1">
@@ -16,7 +16,6 @@
               :key="'banner-'+ind"
               :style="{backgroundImage:'url('+require('../assets/img/index/banner_1_'+(ind+1)+'.jpg')+')'}"
             ></swiper-slide>
-            
           </swiper>
           <h1 class="ab" style="line-height:1;">{{$t('index.part_1.title')}}</h1>
           <div class="btn-box ab flex">
@@ -24,16 +23,16 @@
             <div class="btn" @click="$router.push('track')">{{$t('index.part_1.btn2')}}</div>
           </div>
           <ul class="my-pagination" v-show="false">
-              <li :class="{act:bannerOption.curPage==0}">
-                <img  src="../assets/img/index/banner_1_1.jpg">
-              </li>
-              <li :class="{act:bannerOption.curPage==1}">
-                <img  src="../assets/img/index/banner_1_2.jpg">
-              </li>
-              <li :class="{act:bannerOption.curPage==2}">
-                <img  src="../assets/img/index/banner_1_3.jpg">
-              </li>
-            </ul>
+            <li :class="{act:bannerOption.curPage==0}">
+              <img src="../assets/img/index/banner_1_1.jpg">
+            </li>
+            <li :class="{act:bannerOption.curPage==1}">
+              <img src="../assets/img/index/banner_1_2.jpg">
+            </li>
+            <li :class="{act:bannerOption.curPage==2}">
+              <img src="../assets/img/index/banner_1_3.jpg">
+            </li>
+          </ul>
         </div>
       </swiper-slide>
       <swiper-slide :style="{backgroundImage:'url('+require('../assets/img/index/bg_2.jpg')+')'}">
@@ -169,11 +168,35 @@
             </div>
           </div>
           <div class="right">
-            <input type="text" class="first" :placeholder="$t('index.part_7.form1')" v-model="firstName">
-            <input type="text" class="last" :placeholder="$t('index.part_7.form2')" v-model="lastName">
-            <input type="text" class="email" :placeholder="$t('index.part_7.form3')" v-model="email">
+            <input
+              type="text"
+              class="first"
+              :placeholder="$t('index.part_7.form1')"
+              v-model="firstName"
+              @focus="submit"
+            >
+            <input
+              type="text"
+              class="last"
+              :placeholder="$t('index.part_7.form2')"
+              v-model="lastName"
+              @focus="submit"
+            >
+            <input
+              type="text"
+              class="email"
+              :placeholder="$t('index.part_7.form3')"
+              v-model="email"
+              @focus="submit"
+            >
             <input type="text" class="tel" :placeholder="$t('index.part_7.form4')" v-model="tel">
-            <textarea name class="message" :placeholder="$t('index.part_7.form5')" v-model="message"></textarea>
+            <textarea
+              name
+              class="message"
+              :placeholder="$t('index.part_7.form5')"
+              v-model="message"
+              @focus="submit"
+            ></textarea>
             <div class="submit" @click="submit">{{$t('index.part_7.submit')}}</div>
           </div>
         </div>
@@ -202,22 +225,21 @@ export default {
     return {
       timer: null, //序列帧计时器
       count: 12,
-      imgs:[],
-      aniShow:true,
-      aniImg:"../static/img/logo_012.jpg",
-      dialogShow:false,
+      imgs: [],
+      aniShow: true,
+      aniImg: "./static/img/logo_012.jpg",
+      dialogShow: false,
       icon: {
         backgroundImage:
           "url(" + require("../assets/img/index/index_icon.png") + ")"
       },
-      firstName:'',
-      lastName:'',
-      email:'',
-      tel:'',
-      message:'',
+      firstName: "",
+      lastName: "",
+      email: "",
+      tel: "",
+      message: "",
       //翻页配置
       swiperOption: {
-        autoplay: 3000,
         speed: 1000,
         direction: "vertical",
         mousewheel: true,
@@ -228,15 +250,15 @@ export default {
       },
       //banner配置
       bannerOption: {
-        autoplay: 3000,
+        autoplay: true,
         speed: 1000,
-        mousewheel: true,
-        loop:true,
+        // mousewheel: true,
+        loop: true,
         pagination: {
           el: ".swiper-pagination-2",
           clickable: true
         },
-        curPage:0
+        curPage: 0
       }
     };
   },
@@ -245,8 +267,8 @@ export default {
     swiper() {
       return this.$refs.mySwiper.swiper;
     },
-    bannerSwiper(){
-       return this.$refs.banner.swiper;
+    bannerSwiper() {
+      return this.$refs.banner.swiper;
     }
   },
   //监控data中的数据变化
@@ -257,9 +279,9 @@ export default {
     preload() {
       for (var i = 13; i < 118; i++) {
         if (i < 100) {
-          this.imgs.push("../static/img/logo_0" + i + ".jpg");
+          this.imgs.push("./static/img/logo_0" + i + ".jpg");
         } else {
-          this.imgs.push("../static/img/logo_" + i + ".jpg");
+          this.imgs.push("./static/img/logo_" + i + ".jpg");
         }
       }
       for (let img of this.imgs) {
@@ -267,62 +289,43 @@ export default {
         image.src = img;
         image.onload = () => {
           this.count++;
-          if(this.count==117){
-            this.ani()
+          if (this.count == 117) {
+            this.ani();
           }
         };
       }
     },
     //执行序列帧动画
-    ani(){
-      let _count=0
-      this.timer=setInterval(()=>{
-        this.aniImg=this.imgs[_count]
-        _count++
-        if(_count==105){
-          clearInterval(this.timer)
-          this.aniShow=false
-          
+    ani() {
+      let _count = 0;
+      this.timer = setInterval(() => {
+        this.aniImg = this.imgs[_count];
+        _count++;
+        if (_count == 105) {
+          clearInterval(this.timer);
+          this.aniShow = false;
         }
-      },50)
-      sessionStorage.setItem('firstLog',true)
+      }, 50);
+      sessionStorage.setItem("firstLog", true);
     },
-    submit(){
-      if(this.firstName==''){
-        this.$Message.warning('FirstName is required')
-        return
-      }else if(this.lastName==''){
-        this.$Message.warning('LastName is required')
-        return
-      }else if(this.email==''){
-        this.$Message.warning('E-mail is required')
-        return
-      }else if(this.tel==''){
-        this.$Message.warning('Telephone is required')
-        return
-      }else if(this.message==''){
-        this.$Message.warning('Message is required')
-        return
-      }
-      this.dialogShow=true
+    submit() {
+      this.dialogShow = true;
     },
-    toService(num){
-      this.$router.push({name:'service',params:{serviceId:num}});
+    toService(num) {
+      this.$router.push({ name: "service", params: { serviceId: num } });
     }
   },
   //生命周期 - 创建完成（可以访问当前this实例）
   created() {},
   //生命周期 - 挂载完成（可以访问DOM元素）
   mounted() {
-    let isFirst=sessionStorage.getItem('firstLog')
-    if(isFirst){
-      this.aniShow=false
-      return
-    }else{
-       this.preload()
+    let isFirst = sessionStorage.getItem("firstLog");
+    if (isFirst) {
+      this.aniShow = false;
+      return;
+    } else {
+      this.preload();
     }
-    
-    
   }
 };
 </script>
@@ -331,7 +334,7 @@ export default {
   width: 100%;
   height: 100%;
   position: relative;
-  .ani{
+  .ani {
     width: 100%;
     height: 100%;
     position: fixed;
@@ -346,22 +349,20 @@ export default {
       width: 100%;
       height: 100%;
       background-position: center;
-      background-size: 100% 100%;
+      // background-size: 100% 100%;
+
       .section {
         width: 100%;
         height: 100%;
         position: relative;
         overflow: hidden;
-        
       }
       .part-1 {
         h1 {
           left: 50%;
           transform: translateX(-50%);
-          // top: 4.35rem;
           top: 39%;
-          // top: 0;
-          z-index: 1;
+          z-index: 100;
           font-family: "bauhs93";
           color: white;
           font-size: 0.82rem;
@@ -372,7 +373,7 @@ export default {
         .btn-box {
           width: 5.8rem;
           height: 0.7rem;
-          z-index: 1;
+          z-index: 100;
           justify-content: space-between;
           left: 50%;
           transform: translateX(-50%);
@@ -441,7 +442,7 @@ export default {
             color: white;
             font-family: Helvetica;
             margin-top: 0.15rem;
-            font-family: 'HelveticaExt';
+            font-family: "HelveticaExt";
             line-height: 1.5;
           }
           .box {
@@ -482,7 +483,7 @@ export default {
                 font-size: 0.2rem;
                 margin-top: 0.1rem;
                 text-align: center;
-                font-family: 'HelveticaExt';
+                font-family: "HelveticaExt";
                 font-weight: bold;
               }
             }
@@ -498,10 +499,10 @@ export default {
               position: absolute;
               right: 0;
               top: 0.16rem;
-              font-family: 'HelveticaExt';
+              font-family: "HelveticaExt";
               cursor: pointer;
-              transition: .3s;
-              &:hover{
+              transition: 0.3s;
+              &:hover {
                 background: #2a6ec1;
               }
             }
@@ -656,13 +657,14 @@ export default {
             outline: none;
             color: #b2b2b2;
             text-indent: 0.1rem;
-            font-family: 'HelveticaExt';
+            font-family: "HelveticaExt";
             font-size: 0.2rem;
           }
-          textarea{
+          textarea {
             padding-top: 0.1rem;
           }
-          input::-webkit-input-placeholder,textarea::-webkit-input-placeholder{
+          input::-webkit-input-placeholder,
+          textarea::-webkit-input-placeholder {
             color: #b2b2b2;
           }
           .first,
@@ -689,10 +691,10 @@ export default {
             text-align: center;
             line-height: 0.44rem;
             margin: 0.3rem auto;
-            transition: .3s;
-            font-family: 'HelveticaExt';
+            transition: 0.3s;
+            font-family: "HelveticaExt";
             cursor: pointer;
-            &:hover{
+            &:hover {
               background: #2a6ec1;
             }
           }
@@ -700,33 +702,147 @@ export default {
       }
     }
   }
-  .my-pagination{
+  .my-pagination {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
     bottom: 0.5rem;
     z-index: 1000;
-    li{
+    li {
       display: inline-block;
       position: relative;
       width: 0.5rem;
       height: 0.5rem;
       background: rgba(255, 255, 255, 0.7);
       border-radius: 50%;
-      transition: .3s;
-      img{
+      transition: 0.3s;
+      img {
         width: 0.46rem;
         height: 0.46rem;
         border-radius: 50%;
         margin: 0.02rem;
       }
-      &.act{
-        transform: scale(1.2)
+      &.act {
+        transform: scale(1.2);
       }
     }
   }
 }
-
+@media (min-device-width: 375px) and (max-device-width: 812px) {
+  .index {
+    .swiper-container {
+      .swiper-slide {
+        .part-1 {
+          h1 {
+            font-size: 26px;
+          }
+          .btn-box {
+            width: 260px;
+            .btn {
+              width: 120px;
+              height: 25px;
+              font-size: 14px;
+              line-height: 25px;
+            }
+          }
+        }
+        .mask {
+          height: 10rem;
+          padding: 0 0rem;
+          .content {
+          }
+          .text {
+            width: 9rem;
+            h1 {
+              font-size: 14px;
+              &::after {
+                content: "";
+                width: 2.9rem;
+                height: 0.08rem;
+                display: block;
+                position: absolute;
+                right: 0;
+                bottom: -0.06rem;
+              }
+            }
+            & > p {
+              font-size: 10px;
+            }
+            .box {
+              .more {
+                font-size: 9px;
+                width: 4rem;
+                height: 0.8rem;
+                line-height: 0.8rem;
+                top: 0rem;
+                &:hover {
+                  background: #2a6ec1;
+                }
+              }
+            }
+          }
+          &.right {
+            .box {
+              padding-left: 4.5rem;
+            }
+          }
+        }
+        .form {
+          width: 14rem;
+          height: 20rem;
+          h1 {
+            font-size: 1rem;
+          }
+          h3 {
+            font-size: 0.4rem;
+          }
+          .left {
+            width: 100%;
+            p {
+              font-size: 0.4rem;
+            }
+          }
+          .right {
+            width: 100%;
+            input,
+            textarea {
+              margin-bottom: 0.2rem;
+              border-radius: 0.05rem;
+              outline: none;
+              color: #b2b2b2;
+              text-indent: 0.1rem;
+              font-family: "HelveticaExt";
+              font-size: 0.4rem;
+            }
+            .first,
+          .last {
+            width: 10.2rem;
+            height: 0.84rem;
+            margin: 0.2rem auto;
+          }
+          .email,
+          .tel {
+            width: 10.2rem;
+            height: 0.84rem;
+            margin:  0.2rem auto;
+          }
+          .message {
+            width: 10.2rem;
+            height: 3.31rem;
+            margin:  0.2rem auto;
+          }
+          .submit{
+            font-size: 0.6rem;
+            width: 5rem;
+            height: 1rem;
+            line-height: 1rem;
+          }
+          }
+        }
+      }
+    }
+  }
+}
 </style>
 <style lang="less">
 .swiper-pagination-bullet {
@@ -736,5 +852,4 @@ export default {
 .swiper-pagination-bullet-active {
   background: #ffffff;
 }
-
 </style>
