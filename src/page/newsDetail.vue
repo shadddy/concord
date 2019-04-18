@@ -47,7 +47,7 @@ export default {
   .content {
     width: 12.82rem;
     margin: 0 auto;
-    padding-bottom: 1.7rem;
+    padding-bottom: 2rem;
     h1 {
       width: 9.4rem;
       text-align: center;

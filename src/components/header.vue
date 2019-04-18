@@ -1,21 +1,14 @@
 <template>
   <div class="header ab flex" :class="{isNotIndex:$route.meta.isIndex==false}">
-    <div
-      class="logo"
-      :style="index_icon"
-    ></div>
+    <div class="logo" :style="index_icon" @click="$router.push('/')"></div>
     <ul>
-      <li
-        v-for="(item,index) in nav"
-        :key="index"
-        :class="{act:index==$route.meta.dataIndex}"
-      >
+      <li v-for="(item,index) in nav" :key="index" :class="{act:index==$route.meta.dataIndex}">
         <router-link :to="item.url">{{item.name}}</router-link>
       </li>
     </ul>
     <div class="lang flex">
-      <span>EN</span>
-      <span>CN</span>
+      <span :class="{act:$i18n.locale=='EN'}" @click="$i18n.locale='EN'">EN</span>
+      <span :class="{act:$i18n.locale=='CN'}" @click="$i18n.locale='CN'">CN</span>
     </div>
   </div>
 </template>
@@ -28,39 +21,44 @@ export default {
       index_icon:
         "background-image:url(" +
         require("../assets/img/index/index_icon.png") +
-        ")",
-      nav: [
+        ")"
+    };
+  },
+  computed: {
+    nav() {
+      return [
         {
           name: this.$t("header.nav.nav1"),
-          url:{path:'/'}
+          url: { path: "/" }
         },
         {
           name: this.$t("header.nav.nav2"),
-          url:{path:'about'}
+          url: { path: "about" }
         },
         {
           name: this.$t("header.nav.nav3"),
-          url:{path:'service'}
+          url: { path: "service" }
         },
         {
           name: this.$t("header.nav.nav4"),
-          url:{path:'tool'}
+          url: { path: "tool" }
         },
         {
           name: this.$t("header.nav.nav5"),
-          url:{path:'location'}
+          url: { path: "location" }
         },
         {
           name: this.$t("header.nav.nav6"),
-          url:{path:'tpat'}
+          url: { path: "tpat" }
         }
-      ]
-    };
+      ];
+    }
   },
-  computed: {},
   methods: {},
   created() {},
-  mounted() {}
+  mounted() {
+    console.log(this.$i18n);
+  }
 };
 </script>
 <style lang='less' scoped>
@@ -87,29 +85,31 @@ export default {
     background-position: -5.9rem -3.7rem;
     background-size: 15rem 8rem;
     margin: 0.25rem 0 0 1.33rem;
+    cursor: pointer;
   }
-   ul {
+  ul {
     margin: 0.54rem 0 0 0.11rem;
+    width: 11.1rem;
     li {
       font-size: 0.24rem;
       display: inline-block;
       margin-left: 0.89rem;
       position: relative;
-      a{
+      a {
         color: white;
-        transition: .3s;
+        transition: 0.3s;
         font-family: "HelveticaExt-Normal";
-        &:hover{
+        &:hover {
           color: #1a478b !important;
         }
       }
-      &.act{
-         a{
-           color: #1a478b !important;
-         }
+      &.act {
+        a {
+          color: #1a478b !important;
+        }
       }
-      &.act:after{
-        content: url('../assets/img/act.png');
+      &.act:after {
+        content: url("../assets/img/act.png");
         width: 0.27rem;
         height: 0.03rem;
         display: block;
@@ -117,7 +117,6 @@ export default {
         bottom: 0.1rem;
         left: 50%;
         transform: translateX(-50%);
-
       }
     }
   }
@@ -130,8 +129,9 @@ export default {
       font-family: "HelveticaExt-Normal";
       vertical-align: top;
       position: relative;
+      cursor: pointer;
       &:nth-of-type(2) {
-          margin-left:0.3rem;
+        margin-left: 0.3rem;
         &::before {
           content: "";
           background: white;
@@ -140,30 +140,36 @@ export default {
           display: block;
           position: absolute;
           left: -0.16rem;
-          top: 0.04rem;
+          top: 0.01rem;
         }
+      }
+      &.act {
+        color: #105295;
       }
     }
   }
-  &.isNotIndex{
+  &.isNotIndex {
     position: relative;
     margin-bottom: 0.35rem;
     background: white;
-    ul{
-      li{
-        color:#666666;
-        a{
-          color:#666666;
+    ul {
+      li {
+        color: #666666;
+        a {
+          color: #666666;
         }
       }
     }
-    .lang{
-      span{
-        color:#666666;
-        &:nth-of-type(2){
-          &::before{
+    .lang {
+      span {
+        color: #666666;
+        &:nth-of-type(2) {
+          &::before {
             background: #666666;
           }
+        }
+        &.act {
+          color: #105295;
         }
       }
     }

@@ -49,7 +49,7 @@ export default {
   width: 12.82rem;
   height: auto;
   margin: 0 auto;
-  padding: 0.7rem 0.25rem 0.9rem 0.25rem;
+  padding: 0.7rem 0.25rem 2rem 0.25rem;
   h1 {
     font-size: 0.42rem;
     color: #4c4c4c;

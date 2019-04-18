@@ -16,12 +16,24 @@
               :key="'banner-'+ind"
               :style="{backgroundImage:'url('+require('../assets/img/index/banner_1_'+(ind+1)+'.jpg')+')'}"
             ></swiper-slide>
+            
           </swiper>
-          <h1 class="ab">{{$t('index.part_1.title')}}</h1>
+          <h1 class="ab" style="line-height:1;">{{$t('index.part_1.title')}}</h1>
           <div class="btn-box ab flex">
             <div class="btn" @click="$router.push('quote')">{{$t('index.part_1.btn1')}}</div>
-            <div class="btn">{{$t('index.part_1.btn2')}}</div>
+            <div class="btn" @click="$router.push('track')">{{$t('index.part_1.btn2')}}</div>
           </div>
+          <ul class="my-pagination" v-show="false">
+              <li :class="{act:bannerOption.curPage==0}">
+                <img  src="../assets/img/index/banner_1_1.jpg">
+              </li>
+              <li :class="{act:bannerOption.curPage==1}">
+                <img  src="../assets/img/index/banner_1_2.jpg">
+              </li>
+              <li :class="{act:bannerOption.curPage==2}">
+                <img  src="../assets/img/index/banner_1_3.jpg">
+              </li>
+            </ul>
         </div>
       </swiper-slide>
       <swiper-slide :style="{backgroundImage:'url('+require('../assets/img/index/bg_2.jpg')+')'}">
@@ -40,7 +52,7 @@
                   <div class="pic icon2" :style="icon"></div>
                   <p>{{$t('index.part_2.icon2')}}</p>
                 </div>
-                <div class="more">{{$t('index.part_2.more')}}</div>
+                <div class="more" @click="toService(1)">{{$t('index.part_2.more')}}</div>
               </div>
             </div>
           </div>
@@ -62,7 +74,7 @@
                   <div class="pic icon4" :style="icon"></div>
                   <p>{{$t('index.part_3.icon2')}}</p>
                 </div>
-                <div class="more">{{$t('index.part_3.more')}}</div>
+                <div class="more" @click="toService(2)">{{$t('index.part_3.more')}}</div>
               </div>
             </div>
           </div>
@@ -84,7 +96,7 @@
                   <div class="pic icon6" :style="icon"></div>
                   <p>{{$t('index.part_4.icon2')}}</p>
                 </div>
-                <div class="more">{{$t('index.part_4.more')}}</div>
+                <div class="more" @click="toService(3)">{{$t('index.part_4.more')}}</div>
               </div>
             </div>
           </div>
@@ -106,7 +118,7 @@
                   <div class="pic icon8" :style="icon"></div>
                   <p>{{$t('index.part_5.icon2')}}</p>
                 </div>
-                <div class="more">{{$t('index.part_5.more')}}</div>
+                <div class="more" @click="toService(4)">{{$t('index.part_5.more')}}</div>
               </div>
             </div>
           </div>
@@ -128,7 +140,7 @@
                   <div class="pic icon10" :style="icon"></div>
                   <p>{{$t('index.part_6.icon2')}}</p>
                 </div>
-                <div class="more">{{$t('index.part_6.more')}}</div>
+                <div class="more" @click="toService(5)">{{$t('index.part_6.more')}}</div>
               </div>
             </div>
           </div>
@@ -191,7 +203,7 @@ export default {
       timer: null, //序列帧计时器
       count: 12,
       imgs:[],
-      aniShow:false,
+      aniShow:true,
       aniImg:"../static/img/logo_012.jpg",
       dialogShow:false,
       icon: {
@@ -221,9 +233,10 @@ export default {
         mousewheel: true,
         loop:true,
         pagination: {
-          el: ".swiper-pagination",
+          el: ".swiper-pagination-2",
           clickable: true
-        }
+        },
+        curPage:0
       }
     };
   },
@@ -231,6 +244,9 @@ export default {
   computed: {
     swiper() {
       return this.$refs.mySwiper.swiper;
+    },
+    bannerSwiper(){
+       return this.$refs.banner.swiper;
     }
   },
   //监控data中的数据变化
@@ -266,8 +282,10 @@ export default {
         if(_count==105){
           clearInterval(this.timer)
           this.aniShow=false
+          
         }
       },50)
+      sessionStorage.setItem('firstLog',true)
     },
     submit(){
       if(this.firstName==''){
@@ -287,13 +305,24 @@ export default {
         return
       }
       this.dialogShow=true
+    },
+    toService(num){
+      this.$router.push({name:'service',params:{serviceId:num}});
     }
   },
   //生命周期 - 创建完成（可以访问当前this实例）
   created() {},
   //生命周期 - 挂载完成（可以访问DOM元素）
   mounted() {
-    this.preload()
+    let isFirst=sessionStorage.getItem('firstLog')
+    if(isFirst){
+      this.aniShow=false
+      return
+    }else{
+       this.preload()
+    }
+    
+    
   }
 };
 </script>
@@ -323,6 +352,7 @@ export default {
         height: 100%;
         position: relative;
         overflow: hidden;
+        
       }
       .part-1 {
         h1 {
@@ -358,7 +388,6 @@ export default {
             font-weight: 600;
             border-radius: 0.35rem;
             cursor: pointer;
-            font-family: 'HelveticaExt';
           }
         }
       }
@@ -425,7 +454,7 @@ export default {
             .icon {
               position: relative;
               margin-right: 0.6rem;
-              width: 0.94rem;
+              // width: 0.94rem;
               &.before::before {
                 content: "";
                 background: white;
@@ -470,6 +499,11 @@ export default {
               right: 0;
               top: 0.16rem;
               font-family: 'HelveticaExt';
+              cursor: pointer;
+              transition: .3s;
+              &:hover{
+                background: #2a6ec1;
+              }
             }
           }
         }
@@ -603,7 +637,8 @@ export default {
             font-size: 0.2rem;
             line-height: 0.86rem;
             margin-left: 0.55rem;
-            font-family: 'HelveticaExt';
+            // font-family: 'HelveticaExt';
+            letter-spacing: 0.01rem;
           }
         }
         .right {
@@ -665,7 +700,33 @@ export default {
       }
     }
   }
+  .my-pagination{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0.5rem;
+    z-index: 1000;
+    li{
+      display: inline-block;
+      position: relative;
+      width: 0.5rem;
+      height: 0.5rem;
+      background: rgba(255, 255, 255, 0.7);
+      border-radius: 50%;
+      transition: .3s;
+      img{
+        width: 0.46rem;
+        height: 0.46rem;
+        border-radius: 50%;
+        margin: 0.02rem;
+      }
+      &.act{
+        transform: scale(1.2)
+      }
+    }
+  }
 }
+
 </style>
 <style lang="less">
 .swiper-pagination-bullet {
@@ -675,4 +736,5 @@ export default {
 .swiper-pagination-bullet-active {
   background: #ffffff;
 }
+
 </style>

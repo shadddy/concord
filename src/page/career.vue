@@ -87,7 +87,7 @@ export default {
   .content {
     width: 12.82rem;
     margin: 0 auto;
-    padding-bottom: 2.3rem;
+    padding-bottom: 1.55rem;
     h1 {
       margin-top: 0.4rem;
       color: #333;

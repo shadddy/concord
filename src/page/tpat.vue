@@ -54,6 +54,7 @@ export default {
     margin: 0 auto;
     padding-bottom: 2rem;
     h1 {
+      margin-top: 0.4rem;
       color: #333;
       font-family: "biminbold";
       font-size: 0.42rem;
@@ -89,6 +90,7 @@ export default {
     p{
       font-size: 0.2rem;
       color: #4c4c4c;
+      line-height: 2;
     }
     .title{
       text-align: center;
@@ -108,6 +110,8 @@ export default {
       position: relative;
       padding-left: 0.32rem;
       margin-bottom: 0.3rem;
+      line-height: 1.5;
+      font-weight: bold;
       &::before{
             content: "";
             background: #2a6ec1;
