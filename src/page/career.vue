@@ -15,15 +15,15 @@
       <div class="form">
         <div class="box name">
           <p>{{$t('career.name')}}<span class="blue">(*)</span></p>
-          <input type="text" v-model="name">
+          <input type="text" v-model="name" @focus="send">
         </div>
         <div class="box email">
           <p>{{$t('career.email')}}<span class="blue">(*)</span></p>
-          <input type="email" v-model="email">
+          <input type="email" v-model="email" @focus="send">
         </div>
         <div>
           <p>{{$t('career.message')}}<span class="blue">({{$t('career.notice')}})</span></p>
-          <textarea name="" id="" cols="30" rows="10" v-model="message"></textarea>
+          <textarea name="" id="" cols="30" rows="10" v-model="message" @focus="send"></textarea>
         </div>
         <div class="btn" @click="send()">
             {{$t('career.send')}}
@@ -56,16 +56,6 @@ export default {
   computed: {},
   methods: {
     send(){
-      if(this.name==""){
-        this.$Message.warning('Name is required')
-        return
-      }else if(this.email==""){
-        this.$Message.warning('E-amil is required')
-        return
-      }else if(this.message==""){
-        this.$Message.warning('Message is required')
-        return
-      }
       this.dialogShow=true
     }
   },
@@ -179,6 +169,24 @@ export default {
         &:hover{
           font-size: 0.24rem;
         }
+      }
+    }
+  }
+}
+@media (min-device-width: 375px) and (max-device-width: 812px){
+  .career{
+    .content{
+      h1{
+        font-size: 0.8rem;
+      }
+      p{
+        font-size: 0.4rem;
+        line-height: 0.6rem;
+      }
+      .btn{
+        height: 1rem;
+        font-size: 0.4rem;
+        line-height: 1rem;
       }
     }
   }

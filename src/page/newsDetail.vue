@@ -78,4 +78,20 @@ export default {
     }
   }
 }
+@media (min-device-width: 375px) and (max-device-width: 812px){
+  .newsDetail{
+    .content{
+      h1{
+        font-size: 0.6rem;
+        &::after{
+          width: 2rem
+        }
+      }
+      p{
+        font-size: 0.4rem;
+      }
+
+    }
+  }
+}
 </style>

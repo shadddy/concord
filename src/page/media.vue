@@ -104,4 +104,29 @@ export default {
     }
   }
 }
+@media (min-device-width: 375px) and (max-device-width: 812px){
+  .media{
+    .content{
+      width: 14rem;
+      ul{
+        li{
+          img{
+            width: 12.6rem;
+            height: 8.1rem;
+            margin: 0 auto;
+          }
+          div{
+            width: 100%;
+          }
+          h1{
+            font-size: 0.5rem;
+          }
+          p{
+            font-size: 0.4rem;
+          }
+        }
+      }
+    }
+  }
+}
 </style>

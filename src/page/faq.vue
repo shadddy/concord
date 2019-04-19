@@ -100,4 +100,20 @@ export default {
     }
   }
 }
+@media (min-device-width: 375px) and (max-device-width: 812px){
+  .faq{
+    .content{
+      h1{
+        font-size: 0.8rem;
+         &::after{
+           width: 2rem
+         }
+      }
+      p{
+        font-size: 0.4rem;
+        line-height: 0.6rem;
+      }
+    }
+  }
+}
 </style>

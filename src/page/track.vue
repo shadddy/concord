@@ -2283,6 +2283,8 @@ export default {
   .search-box {
     .ivu-input {
       height: 0.5rem;
+      font-size: 0.2rem;
+      text-indent: 0.2rem;
     }
     .ivu-input-search {
       background: #3f6fb7 !important;
