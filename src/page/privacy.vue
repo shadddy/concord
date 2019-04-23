@@ -121,7 +121,7 @@ export default {
                width: 0.1rem;
                height: 0.1rem;
                position: absolute;
-               top: 0.08rem;
+               top: 0.04rem;
                border-radius: 50%;
                left: 0;
         }
@@ -136,7 +136,7 @@ export default {
                width: 0.08rem;
                height: 0.08rem;
                position: absolute;
-               top: 0.09rem;
+               top: 0.05rem;
                border-radius: 50%;
                left: 0;
         }

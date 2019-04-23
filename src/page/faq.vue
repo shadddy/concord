@@ -4,15 +4,15 @@
     <div class="inner-banner"></div>
     <div class="content">
       <h1>{{$t('faq.name')}}</h1>
-      <p v-for="(item,index) in $t('faq.list1')" :key="index">
+      <p v-for="(item,index) in $t('faq.list1')" :key="'p1'+index">
           {{item}}
       </p>
       <h3>{{$t('faq.title1')}}</h3>
-       <p v-for="(item,index) in $t('faq.list2')" :key="index">
+       <p v-for="(item,index) in $t('faq.list2')" :key="'p2'+index">
           {{item}}
       </p>
       <h3>{{$t('faq.title2')}}</h3>
-      <p v-for="(item,index) in $t('faq.list3')" :key="index">
+      <p v-for="(item,index) in $t('faq.list3')" :key="'p3'+index">
           {{item}}
       </p>
     </div>
@@ -93,7 +93,7 @@ export default {
                width: 0.1rem;
                height: 0.1rem;
                position: absolute;
-               top: 0.08rem;
+               top: 0.03rem;
                border-radius: 50%;
                left: 0;
         }
