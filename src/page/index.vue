@@ -276,7 +276,7 @@ export default {
   //方法集合
   methods: {
     //预加载序列帧图片
-    preload() {
+    preload() { 
       for (var i = 13; i < 118; i++) {
         if (i < 100) {
           this.imgs.push("./static/img/logo_0" + i + ".jpg");
