@@ -616,6 +616,11 @@ export default {
           display: inline-block;
           .flex {
             margin-bottom: 0.3rem;
+            &:nth-of-type(1){
+              p{
+                 line-height: 1.5;
+              }
+            }
           }
           .icon {
             background-size: 15rem 8rem;
@@ -623,13 +628,13 @@ export default {
             height: 0.86rem;
           }
           .icon1 {
-            background-position: -3.7rem -4.58rem;
+            background-position: -3.7rem -6.35rem;
           }
           .icon2 {
-            background-position: -4.57rem -4.58rem;
+            background-position: -4.57rem -6.35rem;
           }
           .icon3 {
-            background-position: -3.7rem -5.45rem;
+            background-position: -5.43rem -6.35rem;
           }
           .icon4 {
             background-position: -4.57rem -5.45rem;
@@ -641,6 +646,8 @@ export default {
             margin-left: 0.55rem;
             // font-family: 'HelveticaExt';
             letter-spacing: 0.01rem;
+            width: 3.6rem;
+
           }
         }
         .right {

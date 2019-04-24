@@ -68,13 +68,16 @@ export default {
       transform: translateX(-50%);
       bottom: -0.05rem;
     }
+    &:nth-of-type(2){
+      margin-top: 0.3rem;
+    }
   }
   p {
     font-size: 0.2rem;
-    margin-bottom: 0.3rem;
+    // margin-bottom: 0.3rem;
     font-family: 'Helvetica';
     letter-spacing: 1px;
-    word-break: break-all;
+    // word-break: break-all;
     line-height: 0.4rem;
   }
   @media (min-device-width: 375px) and (max-device-width: 812px){

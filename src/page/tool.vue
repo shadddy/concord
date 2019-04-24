@@ -121,11 +121,11 @@
         <h1>{{$t('tool.nav3.name')}}</h1>
         <p>
           {{$t('tool.nav3.btn1')}}
-          <span class="blue">({{$t('tool.nav3.download')}})</span>
+          <span class="blue"><a href="./static/air shipment instruction form.pdf" target="_blank" download="download">({{$t('tool.nav3.download')}})</a></span>
         </p>
         <p>
           {{$t('tool.nav3.btn2')}}
-          <span class="blue">({{$t('tool.nav3.download')}})</span>
+          <span class="blue"><a href="./static/ocean shipment instruction form.xls" target="_blank">({{$t('tool.nav3.download')}})</a></span>
         </p>
       </div>
     </div>
@@ -270,7 +270,9 @@ export default {
           width: 0.1rem;
           height: 0.1rem;
           position: absolute;
-          top: 0.09rem;
+          top: 0.13rem;
+          // top: 50%;
+          // transform: translateY(-50%);
           border-radius: 50%;
           left: 0;
         }
@@ -483,7 +485,9 @@ export default {
             width: 0.1rem;
             height: 0.1rem;
             position: absolute;
-            top: 0.08rem;
+            top: 0.13rem;
+            // top: 50%;
+            // transform: translateY(-50%);
             border-radius: 50%;
             left: 0;
           }
