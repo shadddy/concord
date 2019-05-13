@@ -250,7 +250,7 @@ export default {
       },
       //banner配置
       bannerOption: {
-        autoplay: true,
+        // autoplay: true,
         speed: 1000,
         // mousewheel: true,
         loop: true,
