@@ -16,7 +16,12 @@ export default {
   components: {},
   data() {
     return {
-        list:[
+        
+    };
+  },
+  computed: {
+      list(){
+          return [
             {
                 name:this.$t("footer.nav1"),
                 url:{path:'media'}
@@ -34,9 +39,8 @@ export default {
                 url:{path:'faq'}
             }
         ]
-    };
+      }
   },
-  computed: {},
   methods: {},
   created() {},
   mounted() {}

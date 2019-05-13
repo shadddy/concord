@@ -67,7 +67,12 @@ export default {
         "background-position:0 -22.5rem;"
       ],
       curbanner: null,
-      list: [
+      curList: {}
+    };
+  },
+  computed: {
+    list(){
+      return [
         {
           title: this.$t("service.nav1.name"),
           text: this.$t("service.nav1.text"),
@@ -96,11 +101,9 @@ export default {
           detail:this.$t("service.nav5.list"),
           detail2:this.$t("service.nav5.list2"),
         }
-      ],
-      curList: {}
-    };
+      ]
+    }
   },
-  computed: {},
   methods: {
     change(num) {
       this.curNav = num;
