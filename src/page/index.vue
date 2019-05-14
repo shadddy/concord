@@ -11,6 +11,7 @@
         <my-head></my-head>
         <div class="section part-1">
           <swiper :options="bannerOption" ref="banner">
+            <!-- <swiper ref="banner" class="banner"> -->
             <swiper-slide
               v-for="(i,ind) in 3"
               :key="'banner-'+ind"
@@ -22,14 +23,14 @@
             <div class="btn" @click="$router.push('quote')">{{$t('index.part_1.btn1')}}</div>
             <div class="btn" @click="$router.push('track')">{{$t('index.part_1.btn2')}}</div>
           </div>
-          <ul class="my-pagination" v-show="false">
-            <li :class="{act:bannerOption.curPage==0}">
+          <ul class="my-pagination" v-show="true">
+            <li :class="{act:bannerOption.curPage==0}" @click="bannerTo(0)">
               <img src="../assets/img/index/banner_1_1.jpg">
             </li>
-            <li :class="{act:bannerOption.curPage==1}">
+            <li :class="{act:bannerOption.curPage==1}" @click="bannerTo(1)">
               <img src="../assets/img/index/banner_1_2.jpg">
             </li>
-            <li :class="{act:bannerOption.curPage==2}">
+            <li :class="{act:bannerOption.curPage==2}" @click="bannerTo(2)">
               <img src="../assets/img/index/banner_1_3.jpg">
             </li>
           </ul>
@@ -222,6 +223,7 @@ export default {
     myDialog
   },
   data() {
+    var that=this
     return {
       timer: null, //序列帧计时器
       count: 12,
@@ -257,6 +259,11 @@ export default {
         pagination: {
           el: ".swiper-pagination-2",
           clickable: true
+        },
+        on:{
+          slideChangeTransitionStart:function(){
+            that.bannerOption.curPage=this.activeIndex-1
+          }
         },
         curPage: 0
       }
@@ -313,12 +320,17 @@ export default {
     },
     toService(num) {
       this.$router.push({ name: "service", params: { serviceId: num } });
+    },
+    bannerTo(num){
+      console.log(num)
+      this.bannerSwiper.slideTo(num+1)
+      this.bannerOption.curPage=num
     }
   },
   //生命周期 - 创建完成（可以访问当前this实例）
   created() {},
   //生命周期 - 挂载完成（可以访问DOM元素）
-  mounted() {
+  mounted() { 
     let isFirst = sessionStorage.getItem("firstLog");
     if (isFirst) {
       this.aniShow = false;
@@ -326,6 +338,7 @@ export default {
     } else {
       this.preload();
     }
+    
   }
 };
 </script>
@@ -716,14 +729,19 @@ export default {
     transform: translateX(-50%);
     bottom: 0.5rem;
     z-index: 1000;
+    width: 2rem;
+    display: flex;
+    justify-content: space-around;
     li {
-      display: inline-block;
+      // display: inline-block;
       position: relative;
       width: 0.5rem;
       height: 0.5rem;
       background: rgba(255, 255, 255, 0.7);
       border-radius: 50%;
       transition: 0.3s;
+      opacity: 0.5;
+      cursor: pointer;
       img {
         width: 0.46rem;
         height: 0.46rem;
@@ -732,6 +750,7 @@ export default {
       }
       &.act {
         transform: scale(1.2);
+         opacity: 1;
       }
     }
   }

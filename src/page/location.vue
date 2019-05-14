@@ -443,7 +443,7 @@ export default {
     h3 {
       color: #333;
       font-family: "biminbold";
-      font-size: 0.24rem;
+      font-size: 0.22rem;
       text-align: center;
       margin: 0.2rem 0 2.4rem 0;
       padding-top: 0.4rem;
